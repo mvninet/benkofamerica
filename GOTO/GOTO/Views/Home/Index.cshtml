@@ -1,16 +1,16 @@
 <div id="applicationWrapper" class="col-12 d-flex flex-fill justify-content-center">
     <div id="mainPage" class="navigationPage">
-        <div class="col-xs-12 col-sm-12">
+        <div class="col-xs-12 col-sm-12 d-flex justify-content-center">
             <img src="~/Frontend/Images/rq9MmY0.png"/>
         </div>
-        <div id="SearchFrom" class="col-xs-12 col-sm-12"></div>
-        <div class="col-xs-12 col-sm-12">
+        <div id="SearchFrom" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
+        <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;">
             <img class="pic32" src="~/Frontend/Images/circus-camel.svg"/>
         </div>
-        <div id="SearchTo" class="col-xs-12 col-sm-12"></div>
-        <div id="parcelType" class="col-xs-12 col-sm-12"></div>
-        <div class="col-xs-12 col-sm-12">
-            <button onclick="ShowResultPage()">Search</button>
+        <div id="SearchTo" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
+        <div id="parcelType" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
+        <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px">
+            <button class="btn btn-success" onclick="ShowResultPage()">Search</button>
         </div>
         
        
@@ -98,13 +98,13 @@
 
 <template id="ParcelType">
     <div class="col-xs-10 col-sm-8">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <input type="radio" name="type" /> <img src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-content="Are you shipping any live animals?" />
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Fragile" data-content="Does your parcel need to be kept cool?" />
+            <input type="radio" name="type" style="margin-left: 15px;"/> <img src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Fragile" data-content="Does your parcel need to be kept cool?" />
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-center" style="margin-top: 20px;">
             <input type="radio" name="type" /> <img src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-content="Do we need to handle the parcel with care?" />
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Recorded package" data-content="Do you need to get a signature for the delivery?" />
+            <input type="radio" name="type" style="margin-left: 15px;" /> <img src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Recorded package" data-content="Do you need to get a signature for the delivery?" />
         </div>
 
 

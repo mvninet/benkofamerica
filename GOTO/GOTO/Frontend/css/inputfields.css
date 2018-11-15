@@ -5,7 +5,7 @@ body {
     background: url("https://www.toptal.com/designers/subtlepatterns/patterns/geometry2.png");
 }
 
-h2 {
+#toSearch h2, #fromSearch h2 {
     font-family: 'Damion', cursive;
     font-weight: 400;
     color: #4caf50;
@@ -14,7 +14,7 @@ h2 {
     position: relative;
 }
 
-    h2:before {
+    #toSearch h2:before, #fromSearch h2:before {
         position: absolute;
         content: '';
         width: 100%;
@@ -24,7 +24,7 @@ h2 {
         height: 1px;
     }
 
-    h2 i {
+    #toSearch h2 i, #fromSearch h2 i {
         font-style: normal;
         background: #fff;
         position: relative;
