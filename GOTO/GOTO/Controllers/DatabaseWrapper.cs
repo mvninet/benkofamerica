@@ -59,7 +59,7 @@ namespace GOTO.Controllers
 
             try
             {
-                SqlDataReader myReader = null;
+                SqlDataReader Reader = null;
                 var commandString =
                     "select OwnSegments.numcheckpoints, c1.name fromcity, c2.name tocity, OwnSegments.active " +
                     "from OwnSegments " +
@@ -67,14 +67,14 @@ namespace GOTO.Controllers
                     "left join City c2 on (OwnSegments.tocity = c2.cityid) " +
                     "where OwnSegments.active = 1";
 
-                SqlCommand myCommand = new SqlCommand(commandString, Database);
+                SqlCommand Command = new SqlCommand(commandString, Database);
 
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
+                Reader = Command.ExecuteReader();
+                while (Reader.Read())
                 {
-                    result.Add(new RouteSegment(myReader["fromcity"].ToString(),
-                        myReader["tocity"].ToString(),
-                        Convert.ToDouble(myReader["numcheckpoints"])));
+                    result.Add(new RouteSegment(Reader["fromcity"].ToString(),
+                        Reader["tocity"].ToString(),
+                        Convert.ToDouble(Reader["numcheckpoints"])));
                 }
             }
             catch (Exception e)
@@ -85,6 +85,39 @@ namespace GOTO.Controllers
             CloseConnection();
 
             return result;
+        }
+
+        public double GetTypeCost(string typeName)
+        {
+            OpenConnection();
+            double typeCost = 1;
+            try
+            {
+                SqlDataReader myReader = null;
+                var commandString = "SELECT [typecost] " +
+                                    "FROM[dbo].[types] " +
+                                    "WHERE type = @Param";
+
+                SqlParameter param = new SqlParameter("@Param", SqlDbType.VarChar,-1);
+                param.Value = typeName;
+
+                SqlCommand command = new SqlCommand(commandString, Database);
+                command.Parameters.Add(param);
+
+                myReader = command.ExecuteReader();
+                while (myReader.Read())
+                {
+                    typeCost = Convert.ToDouble(myReader["typecost"]);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            CloseConnection();
+
+            return typeCost;
         }
 
 
