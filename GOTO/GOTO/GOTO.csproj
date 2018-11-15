@@ -158,6 +158,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Frontend\Images\cow-light.svg" />
+    <Content Include="Frontend\Images\fragile-light.svg" />
+    <Content Include="Frontend\Images\map-marker-alt-light.svg" />
+    <Content Include="Frontend\Images\snowflake-light.svg" />
+    <Content Include="Frontend\index.js" />
+    <Content Include="Frontend\inputfields.css" />
+    <Content Include="Frontend\Searchpage.js" />
     <Content Include="Frontend\css\index.css" />
     <Content Include="Frontend\css\searchPage.css" />
     <Content Include="Frontend\img\background.png" />
@@ -228,16 +236,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Components\index.cshtml" />
-    <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Scripts\umd\popper.js.map" />
-    <Content Include="Scripts\umd\popper-utils.min.js.map" />
-    <Content Include="Scripts\umd\popper-utils.js.map" />
-    <Content Include="Scripts\README.md" />
-    <Content Include="Scripts\popper.min.js.map" />
-    <Content Include="Scripts\popper.js.map" />
-    <Content Include="Scripts\popper-utils.min.js.map" />
-    <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
