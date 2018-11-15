@@ -13,6 +13,10 @@ function init() {
 }
 
 // PUBLIC FUNCTIONS //
+function GetCurrentPage() {
+    return currentPage;
+}
+
 function ShowMainPage() {
     hideAllPages();
     $("#mainPage").show();
@@ -49,9 +53,6 @@ function ShowLoadingScreen(_show) {
 
 // PRIVATE FUNCTIONS //
 function hideAllPages() {
-    $("#mainPage").hide();
-    $("#resultPage").hide();
-    $("#paymentPage").hide();
-    $("#confirmationPage").hide();
+    $(".navigationPage").hide();
     $("#loadingScreen").hide();
 }
