@@ -32,6 +32,7 @@ function ShowResultPage() {
 function ShowPaymentPage() {
     hideAllPages();
     $("#paymentPage").show();
+    insertPaymentinfomation("paymentwrapper");
     currentPage = 2;
 }
 
@@ -55,4 +56,11 @@ function ShowLoadingScreen(_show) {
 function hideAllPages() {
     $(".navigationPage").hide();
     $("#loadingScreen").hide();
+}
+
+function insertPaymentinfomation(parent) {
+    var temp = document.getElementById("paymentTemplate");
+    console.log(temp);
+    var clone = temp.content.cloneNode(true);
+    document.getElementById(parent).appendChild(clone);
 }
