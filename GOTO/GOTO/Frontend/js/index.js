@@ -8,40 +8,40 @@ var currentPage = 0;
 
 
 function init() {
-    ShowMainPage();
-    console.log("init");
+ShowMainPage();
+console.log("init");
 }
 
 // PUBLIC FUNCTIONS //
 function ShowMainPage() {
-    hideAllPages();
-    $("#mainPage").show();
-    currentPage = 0;
+hideAllPages();
+$("#mainPage").show();
+currentPage = 0;
 }
 
 function ShowResultPage() {
-    hideAllPages();
-    $("#resultPage").show();
-    currentPage = 1;
+hideAllPages();
+$("#resultPage").show();
+currentPage = 1;
 }
 
 function ShowPaymentPage() {
-    hideAllPages();
-    $("#paymentPage").show();
-    currentPage = 2;
+hideAllPages();
+$("#paymentPage").show();
+currentPage = 2;
 }
 
 function ShowConfirmationPage() {
-    hideAllPages();
-    $("#confirmationPage").show();
-    currentPage = 3;
+hideAllPages();
+$("#confirmationPage").show();
+currentPage = 3;
 }
 
 
 // PRIVATE FUNCTIONS //
 function hideAllPages() {
-    $("#mainPage").hide();
-    $("#resultPage").hide();
-    $("#paymentPage").hide();
-    $("#confirmationPage").hide();
+$("#mainPage").hide();
+$("#resultPage").hide();
+$("#paymentPage").hide();
+$("#confirmationPage").hide();
 }
