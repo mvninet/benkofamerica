@@ -40,6 +40,7 @@ function ShowConfirmationPage() {
 function ShowLoadingScreen(_show) {
     if (_show) {
         $("#loadingScreen").show();
+
     } else {
         $("#loadingScreen").hide();
     }
