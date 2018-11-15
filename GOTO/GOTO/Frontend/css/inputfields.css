@@ -39,3 +39,8 @@
     border-bottom: 1px solid #ccc;
     background-color: transparent;
 }
+
+.payment-slash{
+    font-size: 35px;
+    line-height: 1.2px
+}

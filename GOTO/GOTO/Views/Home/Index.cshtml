@@ -57,7 +57,7 @@
         <div class="col-xs-12 col-sm-12">
             <p>Terms and Conditions</p>
         </div>
-        <div class="col-xs-12 col-sm-12">
+        <div id="paymentwrapper"class="col-xs-12 col-sm-12">
             <p>Payment</p>
         </div>
         <div class="col-xs-12 col-sm-12">
@@ -84,4 +84,23 @@
 
 <!-- Result List -->
 <template id="routeWrapperTemplate">
+</template>
+
+<template id="paymentTemplate">
+    <div class="col-12">
+        <div class="row d-flex flex-fill">
+            <input type="text" class="form-control col-xs-10 col-sm-8 creditcard" placeholder="Creditcard number"/> 
+        </div>
+        <div class="row d-flex flex-fill pt-2">
+            <div class="col-xs-10 col-sm-8 p-0 d-flex">
+                <div class="col-xs-9 col-sm-9 p-0 d-flex">
+                    <input type="text" class="form-control col-xs-3 col-sm-3 d-flex mr-1" placeholder="DD"/>
+                    <span class="payment-slash">/</span>
+                    <input type="text" class="form-control col-xs-3 col-sm-3 d-flex ml-1" placeholder="MM"/>
+                </div>
+
+                <input type="text" class="form-control col-xs-3 col-sm-3 d-flex" placeholder="CVC"/>
+            </div>
+        </div>
+    </div>
 </template>
