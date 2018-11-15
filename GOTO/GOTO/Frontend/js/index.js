@@ -8,7 +8,7 @@ var currentPage = 0;
 
 
 function init() {
-ShowMainPage();
+    ShowMainPage();
 console.log("init");
 }
 
@@ -16,7 +16,9 @@ console.log("init");
 function ShowMainPage() {
 hideAllPages();
 $("#mainPage").show();
-currentPage = 0;
+    currentPage = 0;
+    showInput_field();
+    showParcelType();
 }
 
 function ShowResultPage() {
@@ -35,6 +37,25 @@ function ShowConfirmationPage() {
 hideAllPages();
 $("#confirmationPage").show();
 currentPage = 3;
+}
+
+
+// FOR TEMPLATES //
+function showInput_field() {
+    var temp = document.getElementById("fromSearch");
+    var clon = temp.content.cloneNode(true);
+    document.body.appendChild(clon);
+
+    var temp1 = document.getElementById("toSearch");
+    var clon1 = temp1.content.cloneNode(true);
+    document.body.appendChild(clon1);
+
+}
+
+function showParcelType() {
+    var temp = document.getElementById("ParcelType");
+    var clon = temp.content.cloneNode(true);
+    document.body.appendChild(clon);
 }
 
 

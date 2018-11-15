@@ -1,6 +1,8 @@
 ﻿<div id="mainPage">
-    <p>MainPage</p>
-    <button onclick="ShowResultPage()">Search</button>
+    <div>
+        <p>MainPage</p>
+        <button onclick="ShowResultPage()">Search</button>
+    </div>
 </div>
 <div id="resultPage">
     <p>ResultPage with routes</p>
@@ -9,9 +11,48 @@
 </div>
 <div id="paymentPage">
     <p>PaymentPage</p>
-    <button onclick="ShowConfirmationPage()">Pay </button>
+    <button onclick="ShowConfirmationPage()">Pay</button>
 </div>
 <div id="confirmationPage">
     <p>ConfirmationPage</p>
     <button onclick="ShowMainPage()">Ship another parcel</button>
 </div>
+
+
+<!-- From inputfield - Search page -->
+<template id="fromSearch">
+    <div class="col-xs-10 col-sm-8 input-effect">
+        <input class="effect-17" type="text" placeholder="">
+        <label>From</label>
+        <span class="focus-border"></span>
+    </div>
+</template>
+
+<!-- To inputfield - Search page -->
+<template id="toSearch">
+    <div class="col-xs-10 col-sm-8 input-effect">
+        <input class="effect-17" type="text" placeholder="">
+        <label>To</label>
+        <span class="focus-border"></span>
+    </div>
+</template>
+
+<template id="ParcelType">
+    <div class="col-xs-10 col-sm-8">
+        <div class="row">
+            <input type="radio" name="type"/> <img src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-content="Some content inside the popover"/>
+            <input type="radio" name="type"/> <img src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Fragile" data-content="Some content inside the popover"/>
+        </div>
+        <div class="row">
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-content="Some content inside the popover"/>
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Recorded package" data-content="Some content inside the popover"/>
+        </div>
+       
+       
+    </div>
+</template>
+
+<script>//POPOVER - NEEDS TO BE INIT WITH JQUERY
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });</script>
