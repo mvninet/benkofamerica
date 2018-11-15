@@ -1,19 +1,19 @@
-<div class="col-12 d-flex flex-fill justify-content-center">
-    <div id="mainPage">
+<div id="applicationWrapper" class="col-12 d-flex flex-fill justify-content-center">
+    <div id="mainPage" class="navigationPage">
         <p>MainPage</p>
         <button onclick="ShowLoadingScreen(true)">Loading Screen</button>
         <button onclick="ShowResultPage()">Search</button>
     </div>
-    <div id="resultPage">
+    <div id="resultPage" class="navigationPage">
         <p>ResultPage with routes</p>
         <button onclick="ShowPaymentPage()">Choose this route</button>
 
     </div>
-    <div id="paymentPage">
+    <div id="paymentPage" class="navigationPage">
         <p>PaymentPage</p>
         <button onclick="ShowConfirmationPage()">Pay </button>
     </div>
-    <div id="confirmationPage">
+    <div id="confirmationPage" class="navigationPage">
         <p>ConfirmationPage</p>
         <button onclick="ShowMainPage()">Ship another parcel</button>
     </div>
