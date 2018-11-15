@@ -5,3 +5,13 @@
     document.body.appendChild(a);
 
 }
+
+function showRouteList() {
+    var temp = document.getElementById("routeWrapperTemplate");
+    var clon = temp.content.cloneNode(true);
+    document.getElementById("routeListWrapper").appendChild(clon);
+} 
+
+function createRouteTemplate(route) {
+
+}
