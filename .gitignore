@@ -29,3 +29,4 @@ GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-wal
 /GOTO/GOTO.Tests/obj/Debug/GOTO.Tests.csproj.CopyComplete
 GOTO/GOTO/bin/
 GOTO/GOTO/obj/
+/node_modules
