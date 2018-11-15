@@ -7,6 +7,6 @@ namespace GOTO.Models
 {
     public class RoutesModel
     {
-        public List<Route> Routes = new List<Route>();
+        public List<PricedRouteSegment> Routes = new List<PricedRouteSegment>();
     }
 }

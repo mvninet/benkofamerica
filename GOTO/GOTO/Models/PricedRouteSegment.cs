@@ -12,7 +12,7 @@ namespace GOTO.Models
         public double Time { get; set; }
         public double Price { get; set; }
 
-        PricedRouteSegment(City fromCity, City toCity, double time, double price)
+        public PricedRouteSegment(City fromCity, City toCity, double time, double price)
         {
             FromCity = fromCity;
             ToCity = ToCity;
@@ -20,7 +20,7 @@ namespace GOTO.Models
             Price = price;
         }
 
-        PricedRouteSegment(string fromCityname, string toCityName, double time, double price)
+        public PricedRouteSegment(string fromCityname, string toCityName, double time, double price)
         {
             FromCity = new City(fromCityname);
             ToCity = new City(toCityName);
