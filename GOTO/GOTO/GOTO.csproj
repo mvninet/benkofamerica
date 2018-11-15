@@ -155,6 +155,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Frontend\index.js" />
     <Content Include="Frontend\inputfields.css" />
+    <Content Include="Frontend\Searchpage.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
