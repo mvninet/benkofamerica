@@ -14,4 +14,14 @@ GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-wal
 /GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide
 /GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-shm
 /GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-wal
-
+*.exe
+/GOTO/GOTO/bin/roslyn/csc.exe.config
+/GOTO/GOTO/bin/roslyn/csc.rsp
+/GOTO/GOTO/bin/roslyn/csi.rsp
+*.dll
+/GOTO/GOTO/bin/roslyn
+*.pdb
+*.txt
+/GOTO/GOTO/obj/Debug/GOTO.csproj.CopyComplete
+*.suo
+/.vs/VSWorkspaceState.json
