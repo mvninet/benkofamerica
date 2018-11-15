@@ -6,7 +6,14 @@
 *.sqlite
 *.cache
 *.sqlite-journal
+<<<<<<< HEAD
 GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-shm
 GOTO/.vs/GOTO/v15/Server/sqlite3/db.lock
 GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide
 GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-wal
+=======
+/GOTO/.vs/GOTO/v15/Server/sqlite3/db.lock
+/GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide
+/GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-shm
+/GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-wal
+>>>>>>> 77fc0fc2203c79c4857ecf4ac7071ef81fb994e6
