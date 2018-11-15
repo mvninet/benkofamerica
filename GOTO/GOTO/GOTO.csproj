@@ -161,6 +161,7 @@
     <Content Include="Frontend\css\index.css" />
     <Content Include="Frontend\css\searchPage.css" />
     <Content Include="Frontend\img\background.png" />
+    <Content Include="Frontend\img\blackDiamondsBackground.png" />
     <Content Include="Frontend\img\placeholder.svg" />
     <Content Include="Frontend\js\StateMachine.js" />
     <Content Include="Frontend\css\inputfields.css" />

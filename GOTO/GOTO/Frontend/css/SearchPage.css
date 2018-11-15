@@ -1,29 +1,58 @@
-﻿.routeWrapper div {
-    border: 1px solid black;
+﻿.routeWrapper {
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px 0;
+}
+
+.routeWrapper div {
+    /*border: 1px solid black;*/
+    padding: 0;
 }
 
 .routeWrapperUpper {
     margin: 20px 0;
     display: block;
+    overflow: hidden;
 }
 
 .routeWrapperLower {
     margin: 20px 0;
-    padding: 20px;
     display: block;
+    overflow: hidden;
 }
 
 .routeWrapperUpper h2 {
     float: left;
     display: inline;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .routeWrapperUpper img {
     height: 20px;
     float: left;
     display: inline;
+    margin: 0 5px 0 20px;
+}
+
+.routeWrapperLower p {
+    float: left;
+    display: inline;
 }
 
 .routeWrapperLower img {
     height: 20px;
+    float: left;
+    display: inline;
+    margin: 0 5px 0 20px;
+}
+
+.routeWrapperLower > div {
+    float: left;
+    display: inline;
+}
+
+.routeWrapperTime p {
+    float: left;
+    display: inline;
 }

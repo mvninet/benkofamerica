@@ -49,9 +49,25 @@ table {
 }
 
 
+/*  DEBUGGING */
+.col-xs-12 {
+    border: 1px solid;
+
+}
+/* END DEBUGGING */
 
 
 #applicationWrapper {
-    background: url("../../Frontend/img/background.png") repeat;
+    background: url("../../Frontend/img/blackDiamondsBackground.png") repeat;
     height: 100vh;
+}
+
+.navigationPage {
+    width: 768px;
+}
+
+@media only screen and (max-width: 768px) {
+    .navigationPage {
+        width: 100vw;
+    }
 }
