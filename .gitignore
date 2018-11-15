@@ -27,3 +27,5 @@ GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-wal
 /.vs/VSWorkspaceState.json
 /GOTO/GOTO.Tests/bin/Debug
 /GOTO/GOTO.Tests/obj/Debug/GOTO.Tests.csproj.CopyComplete
+GOTO/GOTO/bin/
+GOTO/GOTO/obj/
