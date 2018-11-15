@@ -5,7 +5,7 @@ body {
     background: url("https://www.toptal.com/designers/subtlepatterns/patterns/geometry2.png");
 }
 
-h2 {
+#toSearch h2, #fromSearch h2 {
     font-family: 'Damion', cursive;
     font-weight: 400;
     color: #4caf50;
@@ -14,7 +14,7 @@ h2 {
     position: relative;
 }
 
-    h2:before {
+    #toSearch h2:before, #fromSearch h2:before {
         position: absolute;
         content: '';
         width: 100%;
@@ -24,7 +24,7 @@ h2 {
         height: 1px;
     }
 
-    h2 i {
+    #toSearch h2 i, #fromSearch h2 i {
         font-style: normal;
         background: #fff;
         position: relative;
@@ -48,11 +48,9 @@ input[type="text"] {
     outline: none;
 }
 
-.col-3 {
-    float: left;
-    width: 27.33%;
-    margin: 40px 3%;
-    position: relative;
+.payment-slash{
+    font-size: 35px;
+    line-height: 1.2px
 }
 /* necessary to give position: relative to parent. */
 input[type="text"] {
@@ -535,7 +533,7 @@ input[type="text"] {
     background-color: transparent;
 }
 
-    .effect-16 ~ .focus-border {
+  .effect-16 ~ .focus-border {
         position: absolute;
         bottom: 0;
         left: 0;

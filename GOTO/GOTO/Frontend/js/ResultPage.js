@@ -5,11 +5,10 @@
         { price: 200, time: 6 }
     ];
 
-    
-
-    foreach(route in routes) {
-        createRouteTemplate(route);    
-    }
+    //foreach(route in routes) {
+    createRouteTemplate(routes[0]);
+    createRouteTemplate(routes[1]);
+    //}
 }
 
 function createRouteTemplate(route) {
