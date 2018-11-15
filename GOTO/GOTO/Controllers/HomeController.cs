@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,8 +11,14 @@ namespace GOTO.Controllers
     {
         public ActionResult Index()
         {
-            ConnectorController conController = new ConnectorController();
-            //conController.GetRoutes("http://wa-oadk.azurewebsites.net/api/routes/", "?weight=1&type=1&height=1&width=1&length=1");
+            DatabaseWrapper db = new DatabaseWrapper(ConfigurationManager.AppSettings["DatabaseUserName"],
+                                                     ConfigurationManager.AppSettings["DatabasePassword"],
+                                                     ConfigurationManager.AppSettings["DatabaseConnectionURL"],
+                                                     ConfigurationManager.AppSettings["DatabaseTrustedConnection"].ToString(),
+                                                     ConfigurationManager.AppSettings["DatabaseName"].ToString(),
+                                                     Convert.ToInt32(ConfigurationManager.AppSettings["DatabaseConnectionTimeOut"]));
+
+            var test = db.GetTypeCost("Cautious");
             return View();
         }
 
