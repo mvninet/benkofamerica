@@ -177,6 +177,7 @@
     <Content Include="Frontend\js\StateMachine.js" />
     <Content Include="Frontend\css\inputfields.css" />
     <Content Include="Frontend\js\Searchpage.js" />
+    <Content Include="Frontend\js\Validation.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
