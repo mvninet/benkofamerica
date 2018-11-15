@@ -150,6 +150,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DatabaseWrapper.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TelstarController.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Models\Parcel.cs" />
     <Compile Include="Models\ParcelDimensions.cs" />
     <Compile Include="Models\ParcelType.cs" />
+    <Compile Include="Models\PricedRouteSegment.cs" />
     <Compile Include="Models\RouteSegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
