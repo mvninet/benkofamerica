@@ -7,6 +7,7 @@ using System.Web.Http;
 using GOTO.Models;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace GOTO.Controllers
 {
@@ -19,28 +20,16 @@ namespace GOTO.Controllers
         }
 
         // GET: api/Telstar/5
-        public RoutesModel Get(int weight, String ParcelType)
+        public String Get(int weight, String ParcelType)
         {
-            Route route1 = new Route
-            {
-                FromCity = "startCity1",
-                ToCity = "endCity1",
-                Time = 7.5,
-                Price = 230.5
-            };
-            Route route2 = new Route
-            {
-                FromCity = "startCity2",
-                ToCity = "endCity2",
-                Time = 7.5,
-                Price = 230.5
-            };
+            DatabaseWrapper db = new DatabaseWrapper(ConfigurationManager.AppSettings["DatabaseUserName"],
+                                                     ConfigurationManager.AppSettings["DatabasePassword"],
+                                                     ConfigurationManager.AppSettings["DatabaseConnectionURL"],
+                                                     ConfigurationManager.AppSettings["DatabaseTrustedConnection"].ToString(),
+                                                     ConfigurationManager.AppSettings["DatabaseName"].ToString(),
+                                                     Convert.ToInt32(ConfigurationManager.AppSettings["DatabaseConnectionTimeOut"]));
 
-            RoutesModel Routes = new RoutesModel();
-            Routes.Routes.Add(route1);
-            Routes.Routes.Add(route2);
-
-            return Routes;
+            return JsonConvert.SerializeObject(db.GetOwnPricedSegments());
         }
     }
 }

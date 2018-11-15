@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using GOTO.Models;
+using System.Configuration;
 
 namespace GOTO.Controllers
 {
@@ -85,6 +86,42 @@ namespace GOTO.Controllers
             CloseConnection();
 
             return result;
+        }
+
+        public RoutesModel GetOwnPricedSegments()
+        {
+            RoutesModel routesModel = new RoutesModel();
+            OpenConnection();
+
+            try
+            {
+                SqlDataReader myReader = null;
+                var commandString =
+                    "select OwnSegments.numcheckpoints, c1.name fromcity, c2.name tocity, OwnSegments.active " +
+                    "from OwnSegments " +
+                    "left join City c1 on (OwnSegments.fromcity = c1.cityid) " +
+                    "left join City c2 on (OwnSegments.tocity = c2.cityid) " +
+                    "where OwnSegments.active = 1";
+
+                SqlCommand myCommand = new SqlCommand(commandString, Database);
+
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    routesModel.Routes.Add(new PricedRouteSegment(myReader["fromcity"].ToString(),
+                        myReader["tocity"].ToString(),
+                        Convert.ToDouble(myReader["numcheckpoints"]) * Convert.ToDouble(ConfigurationManager.AppSettings["SegmentTime"]),
+                        0));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            CloseConnection();
+            
+            return routesModel;
         }
 
 
