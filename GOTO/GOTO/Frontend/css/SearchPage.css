@@ -1,0 +1,29 @@
+﻿.routeWrapper div {
+    border: 1px solid black;
+}
+
+.routeWrapperUpper {
+    margin: 20px 0;
+    display: block;
+}
+
+.routeWrapperLower {
+    margin: 20px 0;
+    padding: 20px;
+    display: block;
+}
+
+.routeWrapperUpper h2 {
+    float: left;
+    display: inline;
+}
+
+.routeWrapperUpper img {
+    height: 20px;
+    float: left;
+    display: inline;
+}
+
+.routeWrapperLower img {
+    height: 20px;
+}

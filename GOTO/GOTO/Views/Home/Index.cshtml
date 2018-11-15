@@ -19,7 +19,25 @@
             <p>Template From To destination</p>
         </div>
         <div class="col-xs-12 col-sm-12">
-            <p>Options</p>
+            <p>Routes</p>
+            <div id="routeListWrapper">
+                <div class="routeWrapper col-12">
+                    <div class="routeWrapperUpper">
+                        <img src="~/Frontend/img/placeholder.svg" />
+                        <h2>Fastest</h2>
+                    </div>
+                    <div class="routeWrapperLower">
+                        <div class="col-6">
+                            <img src="~/Frontend/img/placeholder.svg" />
+                            <p>Time</p>
+                        </div>
+                        <div class="col-6">
+                            <img src="~/Frontend/img/placeholder.svg" />
+                            <p>Price</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-xs-12 col-sm-12">
             <button onclick="ShowPaymentPage()">Choose this route</button>
@@ -91,8 +109,13 @@
     </div>
 </template>
 
+<!-- Result List -->
+<template id="routeWrapperTemplate">
+</template>
+
 <script>
     //POPOVER - NEEDS TO BE INIT WITH JQUERY
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover();
+        console.log("popover");
     });</script>

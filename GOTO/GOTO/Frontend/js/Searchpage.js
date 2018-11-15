@@ -16,7 +16,16 @@ function showParcelType() {
     document.getElementById("parcelType").appendChild(clon);
 }
 
-function init() {
+function showRouteList() {
+    var temp = document.getElementById("routeWrapperTemplate");
+    var clon = temp.content.cloneNode(true);
+    document.getElementById("routeListWrapper").appendChild(clon);
+} 
+
+function createRouteTemplate(route) {
+
+}
+function initialize() {
     showInput_field();
     showParcelType();
 }
