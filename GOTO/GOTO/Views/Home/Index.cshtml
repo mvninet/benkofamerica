@@ -1,21 +1,63 @@
 <div id="applicationWrapper" class="col-12 d-flex flex-fill justify-content-center">
     <div id="mainPage" class="navigationPage">
-        <p>MainPage</p>
-        <button onclick="ShowLoadingScreen(true)">Loading Screen</button>
-        <button onclick="ShowResultPage()">Search</button>
+        <div class="col-xs-12 col-sm-12">
+            <p>Put in logo</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>From destination</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>logo between destinations</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>To destination</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Options</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <button onclick="ShowResultPage()">Search</button>
+        </div>
     </div>
     <div id="resultPage" class="navigationPage">
         <p>ResultPage with routes</p>
-        <button onclick="ShowPaymentPage()">Choose this route</button>
-
+        <div class="col-xs-12 col-sm-12">
+            <p>Template From To destination</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Options</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <button onclick="ShowPaymentPage()">Choose this route</button>
+        </div>
     </div>
     <div id="paymentPage" class="navigationPage">
         <p>PaymentPage</p>
-        <button onclick="ShowConfirmationPage()">Pay </button>
+        <div class="col-xs-12 col-sm-12">
+            <p>Template From To destination</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Terms and Conditions</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Payment</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <button onclick="ShowConfirmationPage()">Pay </button>
+        </div>
     </div>
     <div id="confirmationPage" class="navigationPage">
         <p>ConfirmationPage</p>
-        <button onclick="ShowMainPage()">Ship another parcel</button>
+        <div class="col-xs-12 col-sm-12">
+            <p>Success Text</p>
+            <p>Success Image</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Order</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <button onclick="ShowMainPage()">Ship another parcel</button>
+        </div>
     </div>
     <div id="loadingScreen">
         <p>We are loading the page for you!</p>
