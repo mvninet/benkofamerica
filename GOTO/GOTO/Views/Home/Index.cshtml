@@ -1,17 +1,19 @@
 <div id="applicationWrapper" class="col-12 d-flex flex-fill justify-content-center">
     <div id="mainPage" class="navigationPage">
         <div class="col-xs-12 col-sm-12">
-            <p>Put in logo</p>
+            <img src="~/Frontend/Images/rq9MmY0.png"/>
         </div>
         <div id="SearchFrom" class="col-xs-12 col-sm-12"></div>
         <div class="col-xs-12 col-sm-12">
-            <p>logo between destinations</p>
+            <img class="pic32" src="~/Frontend/Images/circus-camel.svg"/>
         </div>
         <div id="SearchTo" class="col-xs-12 col-sm-12"></div>
         <div id="parcelType" class="col-xs-12 col-sm-12"></div>
         <div class="col-xs-12 col-sm-12">
             <button onclick="ShowResultPage()">Search</button>
         </div>
+        
+       
     </div>
     <div id="resultPage" class="navigationPage">
         <p>ResultPage with routes</p>
@@ -79,7 +81,7 @@
 <!-- From inputfield - Search page -->
 <template id="fromSearch">
     <div class="col-xs-10 col-sm-8 input-effect">
-        <input class="effect-17" type="text" placeholder="">
+        <input id="autoFrom" class="effect-17" type="text" placeholder="">
         <label>From</label>
         <span class="focus-border"></span>
     </div>
@@ -88,7 +90,7 @@
 <!-- To inputfield - Search page -->
 <template id="toSearch">
     <div class="col-xs-10 col-sm-8 input-effect">
-        <input class="effect-17" type="text" placeholder="">
+        <input id="autoTo" class="effect-17" type="text" placeholder="">
         <label>To</label>
         <span class="focus-border"></span>
     </div>
@@ -97,12 +99,12 @@
 <template id="ParcelType">
     <div class="col-xs-10 col-sm-8">
         <div class="row">
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-content="Some content inside the popover" />
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Fragile" data-content="Some content inside the popover" />
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-content="Are you shipping any live animals?" />
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Fragile" data-content="Does your parcel need to be kept cool?" />
         </div>
         <div class="row">
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-content="Some content inside the popover" />
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Recorded package" data-content="Some content inside the popover" />
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-content="Do we need to handle the parcel with care?" />
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Recorded package" data-content="Do you need to get a signature for the delivery?" />
         </div>
 
 

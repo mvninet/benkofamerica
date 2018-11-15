@@ -48,12 +48,12 @@ input[type="text"] {
     outline: none;
 }
 
-.col-3 {
+/*.col-3 {
     float: left;
     width: 27.33%;
     margin: 40px 3%;
     position: relative;
-}
+}*/
 /* necessary to give position: relative to parent. */
 input[type="text"] {
     font: 15px/24px "Lato", Arial, sans-serif;
