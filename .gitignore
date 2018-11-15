@@ -6,3 +6,7 @@
 *.sqlite
 *.cache
 *.sqlite-journal
+GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-wal
+GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide-shm
+GOTO/.vs/GOTO/v15/Server/sqlite3/storage.ide
+GOTO/.vs/GOTO/v15/Server/sqlite3/db.lock
