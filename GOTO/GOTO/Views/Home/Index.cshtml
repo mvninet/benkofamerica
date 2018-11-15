@@ -1,23 +1,62 @@
-﻿<div id="mainPage">
-    <div>
-        <p>MainPage</p>
-        <button onclick="ShowResultPage()">Search</button>
+<div id="applicationWrapper" class="col-12 d-flex flex-fill justify-content-center">
+    <div id="mainPage" class="navigationPage">
+        <div class="col-xs-12 col-sm-12">
+            <p>Put in logo</p>
+        </div>
+        <div id="SearchFrom" class="col-xs-12 col-sm-12"></div>
+        <div class="col-xs-12 col-sm-12">
+            <p>logo between destinations</p>
+        </div>
+        <div id="SearchTo" class="col-xs-12 col-sm-12"></div>
+        <div id="parcelType" class="col-xs-12 col-sm-12"></div>
+        <div class="col-xs-12 col-sm-12">
+            <button onclick="ShowResultPage()">Search</button>
+        </div>
+    </div>
+    <div id="resultPage" class="navigationPage">
+        <p>ResultPage with routes</p>
+        <div class="col-xs-12 col-sm-12">
+            <p>Template From To destination</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Options</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <button onclick="ShowPaymentPage()">Choose this route</button>
+        </div>
+    </div>
+    <div id="paymentPage" class="navigationPage">
+        <p>PaymentPage</p>
+        <div class="col-xs-12 col-sm-12">
+            <p>Template From To destination</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Terms and Conditions</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Payment</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <button onclick="ShowConfirmationPage()">Pay </button>
+        </div>
+    </div>
+    <div id="confirmationPage" class="navigationPage">
+        <p>ConfirmationPage</p>
+        <div class="col-xs-12 col-sm-12">
+            <p>Success Text</p>
+            <p>Success Image</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p>Order</p>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <button onclick="ShowMainPage()">Ship another parcel</button>
+        </div>
+    </div>
+    <div id="loadingScreen">
+        <p>We are loading the page for you!</p>
     </div>
 </div>
-<div id="resultPage">
-    <p>ResultPage with routes</p>
-    <button onclick="ShowPaymentPage()">Choose this route</button>
-
-</div>
-<div id="paymentPage">
-    <p>PaymentPage</p>
-    <button onclick="ShowConfirmationPage()">Pay</button>
-</div>
-<div id="confirmationPage">
-    <p>ConfirmationPage</p>
-    <button onclick="ShowMainPage()">Ship another parcel</button>
-</div>
-
 
 <!-- From inputfield - Search page -->
 <template id="fromSearch">
@@ -40,19 +79,20 @@
 <template id="ParcelType">
     <div class="col-xs-10 col-sm-8">
         <div class="row">
-            <input type="radio" name="type"/> <img src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-content="Some content inside the popover"/>
-            <input type="radio" name="type"/> <img src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Fragile" data-content="Some content inside the popover"/>
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-content="Some content inside the popover" />
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Fragile" data-content="Some content inside the popover" />
         </div>
         <div class="row">
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-content="Some content inside the popover"/>
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Recorded package" data-content="Some content inside the popover"/>
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-content="Some content inside the popover" />
+            <input type="radio" name="type" /> <img src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Recorded package" data-content="Some content inside the popover" />
         </div>
-       
-       
+
+
     </div>
 </template>
 
-<script>//POPOVER - NEEDS TO BE INIT WITH JQUERY
+<script>
+    //POPOVER - NEEDS TO BE INIT WITH JQUERY
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover();
     });</script>
