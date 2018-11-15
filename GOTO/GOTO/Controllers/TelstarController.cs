@@ -13,9 +13,9 @@ namespace GOTO.Controllers
     public class TelstarController : ApiController
     {
         // GET: api/Telstar
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "Sorry, Wrong Input Parameters. try with Weight and ParcelType" };
+          return "Sorry, Wrong Input Parameters. try with Weight and ParcelType";
         }
 
         // GET: api/Telstar/5
