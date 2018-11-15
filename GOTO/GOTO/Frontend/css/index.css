@@ -50,15 +50,15 @@ table {
 
 
 /*  DEBUGGING */
-.col-xs-12 {
+/*.col-xs-12 {
     border: 1px solid;
 
-}
+}*/
 /* END DEBUGGING */
 
 
 #applicationWrapper {
-    background: url("../../Frontend/img/blackDiamondsBackground.png") repeat;
+    background: url("../../Frontend/img/background.png") repeat;
     height: 100vh;
     position: fixed;
 }

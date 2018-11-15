@@ -167,10 +167,8 @@
     <Content Include="Frontend\Images\map-marker-alt-light.svg" />
     <Content Include="Frontend\Images\rq9MmY0.png" />
     <Content Include="Frontend\Images\snowflake-light.svg" />
-    <Content Include="Frontend\index.js" />
-    <Content Include="Frontend\inputfields.css" />
     <Content Include="Frontend\js\ResultPage.js" />
-    <Content Include="Frontend\Searchpage.js" />
+    <Content Include="Frontend\js\SuccesPage.js" />
     <Content Include="Frontend\css\index.css" />
     <Content Include="Frontend\css\searchPage.css" />
     <Content Include="Frontend\img\background.png" />
