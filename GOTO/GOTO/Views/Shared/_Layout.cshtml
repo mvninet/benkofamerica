@@ -6,6 +6,8 @@
     <title>Telstar Logistics</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Frontend/js/index.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 </head>
 <body>
     @RenderBody()    
@@ -13,5 +15,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script>
+        init();
+        console.log("test")
+    </script>
 </body>
 </html>
