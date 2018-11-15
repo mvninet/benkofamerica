@@ -18,7 +18,7 @@ namespace GOTO
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{Weight}/{ParcelType}",
-                defaults: new { Weight = RouteParameter.Optional, ParcelType = RouteParameter.Optional }
+                defaults: new { Weight = System.Web.Http.RouteParameter.Optional, ParcelType = System.Web.Http.RouteParameter.Optional }
             );
         }
     }

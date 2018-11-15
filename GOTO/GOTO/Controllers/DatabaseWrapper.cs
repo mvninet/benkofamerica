@@ -89,6 +89,7 @@ namespace GOTO.Controllers
 
         public double GetTypeCost(string typeName)
         {
+            OpenConnection();
             double typeCost = 1;
             try
             {
@@ -97,17 +98,13 @@ namespace GOTO.Controllers
                                     "FROM[dbo].[types] " +
                                     "WHERE type = @Param";
 
+                SqlParameter param = new SqlParameter("@Param", SqlDbType.VarChar,-1);
+                param.Value = typeName;
 
+                SqlCommand command = new SqlCommand(commandString, Database);
+                command.Parameters.Add(param);
 
-                SqlParameter Param = new SqlParameter("@Param", SqlDbType.Text);
-                Param.Value = typeName;
-
-
-                SqlCommand Command = new SqlCommand(commandString, Database);
-                Command.Parameters.Add(Param);
-
-
-                myReader = Command.ExecuteReader();
+                myReader = command.ExecuteReader();
                 while (myReader.Read())
                 {
                     typeCost = Convert.ToDouble(myReader["typecost"]);
