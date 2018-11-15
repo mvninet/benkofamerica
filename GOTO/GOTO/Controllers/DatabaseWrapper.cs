@@ -29,7 +29,7 @@ namespace GOTO.Controllers
                                                        connectionTimeOut));
         }
 
-        private void OpenConnection()
+        public void OpenConnection()
         {
             try
             {
@@ -41,7 +41,7 @@ namespace GOTO.Controllers
             }
         }
 
-        private void CloseConnection()
+        public void CloseConnection()
         {
             try
             {
@@ -56,7 +56,7 @@ namespace GOTO.Controllers
         public List<RouteSegment> GetOwnSegments()
         {
             List<RouteSegment> result = new List<RouteSegment>();
-            OpenConnection();
+
 
             try
             {
@@ -83,14 +83,12 @@ namespace GOTO.Controllers
                 Console.WriteLine(e.ToString());
             }
 
-            CloseConnection();
 
             return result;
         }
 
         public double GetTypeCost(string typeName)
         {
-            OpenConnection();
             double typeCost = 1;
             try
             {
@@ -116,19 +114,16 @@ namespace GOTO.Controllers
                 Console.WriteLine(e.ToString());
             }
 
-            CloseConnection();
-
             return typeCost;
         }
 
-        public RoutesModel GetOwnPricedSegments()
+        public List<PricedRouteSegment> GetOwnPricedSegments(double parcelTypePrice)
         {
-            RoutesModel routesModel = new RoutesModel();
-            OpenConnection();
+            List<PricedRouteSegment> routeList = new List<PricedRouteSegment>();
 
             try
             {
-                SqlDataReader myReader = null;
+                SqlDataReader reader = null;
                 var commandString =
                     "select OwnSegments.numcheckpoints, c1.name fromcity, c2.name tocity, OwnSegments.active " +
                     "from OwnSegments " +
@@ -136,25 +131,29 @@ namespace GOTO.Controllers
                     "left join City c2 on (OwnSegments.tocity = c2.cityid) " +
                     "where OwnSegments.active = 1";
 
-                SqlCommand myCommand = new SqlCommand(commandString, Database);
+                SqlCommand command = new SqlCommand(commandString, Database);
 
-                myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
+                reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    routesModel.Routes.Add(new PricedRouteSegment(myReader["fromcity"].ToString(),
-                        myReader["tocity"].ToString(),
-                        Convert.ToDouble(myReader["numcheckpoints"]) * Convert.ToDouble(ConfigurationManager.AppSettings["SegmentTime"]),
-                        0));
+                    var fromCity = reader["fromcity"].ToString();
+                    var toCity = reader["tocity"].ToString();
+                    var checkpoints = Convert.ToDouble(reader["numcheckpoints"]);
+                    var segmentTime = Convert.ToDouble(ConfigurationManager.AppSettings["SegmentTime"]);
+                    var calculatedTime = checkpoints * segmentTime;
+                    var calculatedPrice = checkpoints * Convert.ToDouble(ConfigurationManager.AppSettings["SegmentPrice"]) * parcelTypePrice;
+                    routeList.Add(new PricedRouteSegment(fromCity,
+                                                                  toCity,
+                                                                  calculatedTime,
+                                                                  calculatedPrice));
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
-
-            CloseConnection();
             
-            return routesModel;
+            return routeList;
         }
 
 

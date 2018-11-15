@@ -29,7 +29,13 @@ namespace GOTO.Controllers
                                                      ConfigurationManager.AppSettings["DatabaseName"].ToString(),
                                                      Convert.ToInt32(ConfigurationManager.AppSettings["DatabaseConnectionTimeOut"]));
 
-            return JsonConvert.SerializeObject(db.GetOwnPricedSegments());
+            db.OpenConnection();
+            var test = db.GetTypeCost(ParcelType);
+            db.CloseConnection();
+            db.OpenConnection();
+            var result = JsonConvert.SerializeObject(db.GetOwnPricedSegments(test));
+            db.CloseConnection();
+            return result;
         }
     }
 }

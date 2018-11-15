@@ -11,14 +11,6 @@ namespace GOTO.Controllers
     {
         public ActionResult Index()
         {
-            DatabaseWrapper db = new DatabaseWrapper(ConfigurationManager.AppSettings["DatabaseUserName"],
-                                                     ConfigurationManager.AppSettings["DatabasePassword"],
-                                                     ConfigurationManager.AppSettings["DatabaseConnectionURL"],
-                                                     ConfigurationManager.AppSettings["DatabaseTrustedConnection"].ToString(),
-                                                     ConfigurationManager.AppSettings["DatabaseName"].ToString(),
-                                                     Convert.ToInt32(ConfigurationManager.AppSettings["DatabaseConnectionTimeOut"]));
-
-            var test = db.GetTypeCost("Cautious");
             return View();
         }
 
