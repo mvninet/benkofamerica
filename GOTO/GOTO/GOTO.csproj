@@ -158,6 +158,12 @@
     </Compile>
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\RoutesModel.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Parcel.cs" />
+    <Compile Include="Models\ParcelDimensions.cs" />
+    <Compile Include="Models\ParcelType.cs" />
+    <Compile Include="Models\RouteSegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
