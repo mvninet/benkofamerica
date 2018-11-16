@@ -145,7 +145,8 @@ namespace GOTO.Controllers
                     routeList.Add(new PricedRouteSegment(fromCity,
                                                                   toCity,
                                                                   calculatedTime,
-                                                                  calculatedPrice));
+                                                                  calculatedPrice,
+                                                                  "Telstar"));
                 }
             }
             catch (Exception e)
