@@ -49,17 +49,11 @@ table {
 }
 
 
-/*  DEBUGGING */
-/*.col-xs-12 {
-    border: 1px solid;
-}*/
-/* END DEBUGGING */
-
-
 #applicationWrapper {
     background: url("../../Frontend/img/background.png") repeat;
     height: 100vh;
     position: fixed;
+    overflow: auto;
 }
 
 .pic32 {
