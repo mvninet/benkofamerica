@@ -24,8 +24,8 @@ namespace GOTO.Controllers
 
             foreach (var segment in routeSegments)
             {
-                PricedRouteSegment tempSegment = new PricedRouteSegment(segment.ToCity.CityName,
-                                                                        segment.FromCity.CityName,
+                PricedRouteSegment tempSegment = new PricedRouteSegment(segment.ToCity,
+                                                                        segment.FromCity,
                                                                         segment.Time,
                                                                         segment.Price,
                                                                         segment.Company);
@@ -37,8 +37,8 @@ namespace GOTO.Controllers
 
             foreach (var route in combinedSegments)
             {
-                AddEdgeWithCosts(route.FromCity.CityName,
-                                 route.ToCity.CityName,
+                AddEdgeWithCosts(route.FromCity,
+                                 route.ToCity,
                                  route.Company,
                                  route.Price,
                                  route.Time,
