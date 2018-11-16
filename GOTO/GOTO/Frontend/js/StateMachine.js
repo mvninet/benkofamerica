@@ -8,8 +8,8 @@ var currentPage = 0;
 
 
 function init() {
-    //ShowMainPage();
-    Search();
+    ShowMainPage();
+    //Search();
 }
 
 // PUBLIC FUNCTIONS //
