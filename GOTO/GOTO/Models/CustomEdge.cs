@@ -14,7 +14,7 @@ namespace GOTO.Models
         public CustomEdge(string source, string target, string company, double price, double time) : base(source, target)
         {
             Company = company;
-            Price = Price;
+            Price = price;
             Time = time;
 
         }
