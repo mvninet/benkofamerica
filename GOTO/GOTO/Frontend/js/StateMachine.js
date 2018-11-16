@@ -55,13 +55,6 @@ function ShowPaymentPage(route) {
     setProgressBar();
 }
 
-function ShowConfirmationPage() {
-    hideAllPages();
-    $("#confirmationPage").fadeIn(750);
-    currentPage = 3;
-    setProgressBar();
-}
-
 // PRIVATE FUNCTIONS //
 function hideAllPages() {
     $(".navigationPage").hide();
@@ -80,6 +73,13 @@ function showResultPage() {
     hideAllPages();
     $("#resultPage").fadeIn(500);
     currentPage = 1;
+    setProgressBar();
+}
+
+function ShowConfirmationPage() {
+    hideAllPages();
+    $("#confirmationPage").fadeIn(750);
+    currentPage = 3;
     setProgressBar();
 }
 

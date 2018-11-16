@@ -1,0 +1,36 @@
+﻿#successWrapper {
+    margin: 0;
+}
+
+#successWrapper h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 30px;
+}
+
+#successWrapper .topWrapper img {
+    height: 60px;
+}
+
+#successWrapper p {
+    line-height: 26px;
+    text-align: justify;
+}
+
+.topWrapper {
+    margin-bottom: 30px;
+}
+
+.topWrapper div {
+    margin: 0;
+}
+
+#successWrapper .bottomWrapper {
+    margin-top: 30px;
+}
+
+#successWrapper .confirmationText {
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
