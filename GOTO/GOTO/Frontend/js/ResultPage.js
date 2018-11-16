@@ -18,7 +18,8 @@ function Search(routeparametersglobal) {
 
     $.post("/Home/getRoutes", {
         weight: routeparametersglobal.Weight,
-        type: routeparametersglobal.Type,
+        //type: routeparametersglobal.Type,
+        type: "Standard",
         height: routeparametersglobal.Height,
         width: routeparametersglobal.Width,
         depth: routeparametersglobal.Depth,

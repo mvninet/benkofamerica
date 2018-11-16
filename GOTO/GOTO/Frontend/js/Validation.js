@@ -26,7 +26,6 @@ var isNumberValid = function(input, length) {
 };
 
 var checkAll = function () {
-
     var cities = [];
     var routeParams = {
         Weight: "",

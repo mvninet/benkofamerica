@@ -140,24 +140,3 @@ function initialize() {
 
     
 }
-
-
-
-//$(document).ready(function () {
-//    $(".popoverIcon1").click(function () {
-//        popOver();
-//    });
-//});
-
-
-//function popOver() {
-//    $('.popover-header').append('<button id="popovercloseid" type="button" class="close">&times;</button>');
-//}
-
-//$('#popovercloseid').click(function (e) {
-//    if (e.target.id === "popovercloseid") {
-//        $('.popover').popover('hide');
-//    }
-
-//});
-
