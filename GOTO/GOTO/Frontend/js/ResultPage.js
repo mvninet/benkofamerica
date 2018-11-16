@@ -1,23 +1,20 @@
 ﻿function chooseRoute(element) {
     var route = JSON.parse($(element).attr("data-route"));
     element.className += " routeClicked";
-    var timeoutTime = 500;
-
+    
     setTimeout(function () {
-        $(".routeWrapper").each(function (index) {
-            $(this).fadeOut(timeoutTime, function () { $(this).remove(); });
-        });
-
+        $("#resultPage").fadeOut(750);
         setTimeout(function () {
-           ShowPaymentPage(route);
-        }, 900);
-    }, 1000);
+            ShowPaymentPage(route);
+        }, 1000);
+    }, 1250);
 
 }
 
 function Search() {
     // SEARCH IN API //
     console.log("SEARCH");
+    $(".routeWrapper").remove();
     createRouteListWhileSearching();
 }
 
@@ -49,11 +46,11 @@ function routesFound() {
 }
 
 function createRoutesInList(routes) {
-    const fastestRoute = routes.reduce(function (prev, current) {
+    var fastestRoute = routes.reduce(function (prev, current) {
         return (prev.time < current.time) ? prev : current
     })
     fastestRoute.isFastest = true;
-    const cheapestRoute = routes.reduce(function (prev, current) {
+    var cheapestRoute = routes.reduce(function (prev, current) {
         return (prev.price < current.price) ? prev : current
     })
     cheapestRoute.isCheapest = true;
@@ -69,10 +66,16 @@ function createRouteTemplate(route) {
     var clone = document.importNode(routeWrapperTemplate.content, true);
 
     var header = clone.querySelectorAll("h2");
+    var headerIcon = clone.querySelectorAll("#iconResult");
+    
     if (route.isFastest) {
-        header[0].textContent = "Fastest";        
+        var IconPic = "/Frontend/Images/rabbit-light.svg";
+        header[0].textContent = "Fastest";
+        headerIcon[0].setAttribute("src", IconPic);
     } else if (route.isCheapest) {
+        var IconPic1 = "/Frontend/Images/dollar-sign-solid.svg";
         header[0].textContent = "Cheapest";
+        headerIcon[0].setAttribute("src", IconPic1);
     }
 
     var routeTime = clone.querySelectorAll(".routeTime");

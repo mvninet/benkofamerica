@@ -170,6 +170,8 @@
     <Content Include="Frontend\Images\dollar-sign-solid.svg" />
     <Content Include="Frontend\Images\fragile-light.svg" />
     <Content Include="Frontend\Images\map-marker-alt-light.svg" />
+    <Content Include="Frontend\Images\money-bill-alt-solid.svg" />
+    <Content Include="Frontend\Images\rabbit-light.svg" />
     <Content Include="Frontend\Images\rq9MmY0.png" />
     <Content Include="Frontend\Images\snowflake-light.svg" />
     <Content Include="Frontend\js\Paymentpage.js" />
