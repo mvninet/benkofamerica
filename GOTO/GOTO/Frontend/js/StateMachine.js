@@ -21,10 +21,16 @@ function ShowMainPage() {
     hideAllPages();
     $("#mainPage").show();
     currentPage = 0;
+    setProgressBar();
 }
 
-function Search() {
-    showResultPage();
+function GetReadyToSearch() {
+    Search();
+    $("#mainPage").fadeOut(1000);
+
+    setTimeout(function () {
+        showResultPage();
+    }, 1000);
 }
 
 function ShowPaymentPage(route) {
@@ -32,12 +38,14 @@ function ShowPaymentPage(route) {
     $("#paymentPage").show();
     insertPaymentinfomation("paymentwrapper");
     currentPage = 2;
+    setProgressBar();
 }
 
 function ShowConfirmationPage() {
     hideAllPages();
     $("#confirmationPage").show();
     currentPage = 3;
+    setProgressBar();
 }
 
 function ShowLoadingScreen(_show) {
@@ -53,14 +61,21 @@ function ShowLoadingScreen(_show) {
 function hideAllPages() {
     $(".navigationPage").hide();
     $("#loadingScreen").hide();
+    $("#progressbarWrapper li").removeClass("active");
+}
+
+function setProgressBar() {
+    var currentPage = GetCurrentPage();
+    for (i = 0; i < GetCurrentPage(); i++) {
+        $("#progressbarWrapper li").eq(i).addClass("active");
+    }
 }
 
 function showResultPage() {
     hideAllPages();
-    $("#resultPage").show();
+    $("#resultPage").fadeIn(500);
     currentPage = 1;
-    createRouteListWhileSearching();
-
+    setProgressBar();
 }
 
 function insertPaymentinfomation(parent) {

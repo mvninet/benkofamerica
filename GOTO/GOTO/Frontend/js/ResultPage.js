@@ -15,6 +15,11 @@
 
 }
 
+function Search() {
+    // SEARCH IN API //
+    console.log("SEARCH");
+    createRouteListWhileSearching();
+}
 
 function getPopulatedRoutes() {
     return [
@@ -28,7 +33,7 @@ function createRouteListWhileSearching() {
        createSearchingRouteTemplate();
     }
 
-    setTimeout(routesFound, 2000);
+    setTimeout(routesFound, 5000);
 }
 
 function routesFound() {
