@@ -29,7 +29,7 @@ function createRouteListWhileSearching() {
        createSearchingRouteTemplate();
     }
 
-    setTimeout(routesFound, 3000);
+    setTimeout(routesFound, 2000);
 }
 
 function routesFound() {
@@ -45,11 +45,11 @@ function routesFound() {
 }
 
 function createRoutesInList(routes) {
-    const fastestRoute = routes.reduce(function (prev, current) {
+    var fastestRoute = routes.reduce(function (prev, current) {
         return (prev.time < current.time) ? prev : current
     })
     fastestRoute.isFastest = true;
-    const cheapestRoute = routes.reduce(function (prev, current) {
+    var cheapestRoute = routes.reduce(function (prev, current) {
         return (prev.price < current.price) ? prev : current
     })
     cheapestRoute.isCheapest = true;
