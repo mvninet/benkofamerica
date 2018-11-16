@@ -194,7 +194,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Frontend\css\confirmationPage.css" />
     <Content Include="Frontend\css\paymentpage.css" />
     <Content Include="Frontend\Images\190511_frikanthtikotona1.jpg" />

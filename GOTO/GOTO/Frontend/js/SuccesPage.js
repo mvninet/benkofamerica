@@ -12,8 +12,6 @@
     routeTime[0].textContent = route.time;
     var routePrice = document.getElementsByClassName("succesPrice");
     routePrice[0].textContent = route.price;
-
-
-
-
+    var orderID = document.getElementsByClassName("successOrderId");
+    orderID[0].textContent = Math.round(Math.random(0, 1) * 1000);
 }
