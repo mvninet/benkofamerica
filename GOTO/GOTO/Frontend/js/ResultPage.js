@@ -33,7 +33,7 @@ function createRouteListWhileSearching() {
        createSearchingRouteTemplate();
     }
 
-    setTimeout(routesFound, 5000);
+    setTimeout(routesFound, 2000);
 }
 
 function routesFound() {
