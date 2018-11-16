@@ -6,7 +6,6 @@
 // 3 = ConfirmationPage
 var currentPage = 0;
 
-
 function init() {
     ShowMainPage();
     //Search();
@@ -17,11 +16,16 @@ function GetCurrentPage() {
     return currentPage;
 }
 
-function ShowMainPage() {
+function ShowMainPage(clearPage = false) {
     hideAllPages();
     $("#mainPage").show();
     currentPage = 0;
     setProgressBar();
+    if (clearPage) {
+        $("#fromSearch").val("");
+        $("#toSearch").val("");
+        //TODO RESET THE REST //
+    }
 }
 
 function GetReadyToSearch() {
@@ -33,9 +37,17 @@ function GetReadyToSearch() {
     }, 1000);
 }
 
+function GetReadyForReceipt() {
+    $("#paymentPage").fadeOut(750);
+
+    setTimeout(function () {
+        ShowConfirmationPage();
+    }, 1000);
+}
+
 function ShowPaymentPage(route) {
     hideAllPages();
-    $("#paymentPage").show();
+    $("#paymentPage").fadeIn(750);
     insertPaymentinfomation();
     inserttos();
     insertOverviewPayment();
@@ -45,19 +57,10 @@ function ShowPaymentPage(route) {
 
 function ShowConfirmationPage() {
     hideAllPages();
-    $("#confirmationPage").show();
+    $("#confirmationPage").fadeIn(750);
     currentPage = 3;
     setProgressBar();
 }
-
-function ShowLoadingScreen(_show) {
-    if (_show) {
-        $("#loadingScreen").show();
-    } else {
-        $("#loadingScreen").hide();
-    }
-}
-
 
 // PRIVATE FUNCTIONS //
 function hideAllPages() {
@@ -68,7 +71,7 @@ function hideAllPages() {
 
 function setProgressBar() {
     var currentPage = GetCurrentPage();
-    for (i = 0; i < GetCurrentPage(); i++) {
+    for (i = 0; i <= GetCurrentPage(); i++) {
         $("#progressbarWrapper li").eq(i).addClass("active");
     }
 }
