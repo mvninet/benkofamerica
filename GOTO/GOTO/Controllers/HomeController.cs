@@ -28,7 +28,7 @@ namespace GOTO.Controllers
 
             ShortestPathCalculator path = new ShortestPathCalculator();
             path.SetUpEdgesAndCosts(test, true);
-            path.CalculateShortestPath("Congo", "Timbuktu");
+            path.CalculateShortestPath("Kap Guardafui", "Sierra Leone");
             return View();
         }
 

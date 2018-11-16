@@ -24,10 +24,11 @@ namespace GOTO.Controllers
 
             foreach (var segment in routeSegments)
             {
-                PricedRouteSegment tempSegment;
-                tempSegment = segment;
-                tempSegment.ToCity = segment.FromCity;
-                tempSegment.FromCity = segment.ToCity;
+                PricedRouteSegment tempSegment = new PricedRouteSegment(segment.ToCity.CityName,
+                                                                        segment.FromCity.CityName,
+                                                                        segment.Time,
+                                                                        segment.Price,
+                                                                        segment.Company);
                 flippedSegments.Add(tempSegment);
             }
 
