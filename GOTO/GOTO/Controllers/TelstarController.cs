@@ -19,8 +19,11 @@ namespace GOTO.Controllers
           return "Sorry, Wrong Input Parameters. try with Weight and ParcelType";
         }
 
+
+
         // GET: api/Telstar/5
-        public String Get(int weight, String ParcelType)
+        [HttpGet]
+        public List<PricedRouteSegment> Get(int weight, String ParcelType)
         {
             DatabaseWrapper db = new DatabaseWrapper(ConfigurationManager.AppSettings["DatabaseUserName"],
                                                      ConfigurationManager.AppSettings["DatabasePassword"],
@@ -33,7 +36,7 @@ namespace GOTO.Controllers
             var test = db.GetTypeCost(ParcelType);
             db.CloseConnection();
             db.OpenConnection();
-            var result = JsonConvert.SerializeObject(db.GetOwnPricedSegments(test));
+            var result = db.GetOwnPricedSegments(test);
             db.CloseConnection();
             return result;
         }
