@@ -67,7 +67,7 @@ function routesFound(routes) {
 
 function createRoutesInList(routes) {
     console.log("Routes: " + routes);
-    if (routes > 0) {
+    if (routes.length > 0) {
         var fastestRoute = routes.reduce(function (prev, current) {
             return (prev.time < current.time) ? prev : current;
         })
