@@ -8,8 +8,9 @@
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../Frontend/css/inputfields.css" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Frontend/js/StateMachine.js"></script>
-    <script src="~/Frontend/js/StateMachine.js"></script>
+    <script src="~/Frontend/js/Validation.js"></script>
     <script src="~/Frontend/js/Searchpage.js"></script>
     <script src="~/Frontend/js/ResultPage.js"></script>
     <script src="~/Frontend/js/SuccesPage.js"></script>
@@ -36,12 +37,9 @@
 <script>
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover();
-        console.log("popover");
     });
     init();
     initialize();
-    showRouteList();
-    initSucces();
 </script>
 </body>
 </html>
