@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
+using System.Configuration;
 using System.Net.Http.Headers;
 
 namespace GOTO.Controllers
@@ -55,6 +56,44 @@ namespace GOTO.Controllers
         {
             var result = GetRoutes("http://nccesdkeit.azurewebsites.net/api/routes/", "?weight=" + weight + "&typeOfGoods=" + type + "&date=" + date, "East Indian Trading Co.");
             return result;
+        }
+
+        public List<String> getCities()
+        {
+            List<String> cities = new List<string>();
+            var eastindia = GetEastIndiaRoutes(5, "Live animals", "10-10-2010");
+            foreach (var path in eastindia)
+            {
+                cities.Add(path.FromCity);
+                cities.Add(path.ToCity);
+            }
+            var oceanic = GetOceanicRoutes(5, "Live animals", 10, 10, 10);
+            foreach (var path in oceanic)
+            {
+                cities.Add(path.FromCity);
+                cities.Add(path.ToCity);
+            }
+
+            DatabaseWrapper db = new DatabaseWrapper(ConfigurationManager.AppSettings["DatabaseUserName"],
+                                         ConfigurationManager.AppSettings["DatabasePassword"],
+                                         ConfigurationManager.AppSettings["DatabaseConnectionURL"],
+                                         ConfigurationManager.AppSettings["DatabaseTrustedConnection"].ToString(),
+                                         ConfigurationManager.AppSettings["DatabaseName"].ToString(),
+                                         Convert.ToInt32(ConfigurationManager.AppSettings["DatabaseConnectionTimeOut"]));
+
+            db.OpenConnection();
+            var telstar = db.GetOwnPricedSegments(10);
+            db.CloseConnection();
+            foreach (var path in telstar)
+            {
+                cities.Add(path.FromCity);
+                cities.Add(path.ToCity);
+            }
+            var noDups = cities.Distinct().ToList();
+            return noDups;
+
+
+
         }
 
 
