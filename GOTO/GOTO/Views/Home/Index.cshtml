@@ -15,17 +15,34 @@
         </div>
         <div id="SearchFrom" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;">
-            <img class="pic32" src="~/Frontend/Images/circus-camel.svg" style="transform: scaleX(-1);"/>
+            <img class="pic32" src="~/Frontend/Images/circus-camel.svg" style="transform: scaleX(-1);" />
         </div>
         <div id="SearchTo" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
         <div id="parcelData" class="col-xs-12 col-sm-10 d-flex flex-column justify-content-center" style="margin-top: 20px;"></div>
         <div id="parcelType" class="col-xs-10 col-sm-8 d-flex justify-content-center" style="margin-top: 20px;"></div>
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px">
-            <button class="btn btn-success" onclick="GetReadyToSearch()">Search</button>
+            <button class="btn btn-success col-xs-12 col-sm-12 d-flex justify-content-center" onclick="openMap()">Open map</button>
+        </div>
+        <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px">
+            <button class="btn btn-success col-xs-12 col-sm-12 d-flex justify-content-center" onclick="GetReadyToSearch()">Search</button>
         </div>
 
 
     </div>
+    
+    <div id="mapPage" style="height: 100vh;width: 100vw;position: absolute;top: 0;background-color: white; display: none">
+        <div class="col-xs-12 row col-sm-12 d-flex justify-content-center">
+            <div class="row d-flex flex-fill col-sm-12 col-xs-12">
+                <div class="col-12 d-flex flex-fill justify-content-center p-0">
+                    <button class="btn btn-basic w-100 mt-1" onclick="closeMap()">Go back</button>
+                </div>
+            </div>
+            <div class="col-xs-10 row col-sm-8 d-flex justify-content-center" style="margin-top: 20px;">
+                <img src="~/Frontend/Images/190511_frikanthtikotona1.jpg" />
+            </div>
+        </div>
+     </div>
+
     <div id="resultPage" class="navigationPage">
         <div id="routeOverviewWrapper" class="col-xs-12 col-sm-12">
             <p>Template From To destination</p>
@@ -47,7 +64,7 @@
             <p>Payment</p>
         </div>
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px">
-            <button class="btn btn-basic w-100" onclick="GetReadyForReceipt()">Pay</button>
+            <button class="btn btn-success w-100" onclick="GetReadyForReceipt()">Pay</button>
         </div>
     </div>
     <div id="confirmationPage" class="navigationPage"></div>
@@ -74,14 +91,16 @@
 <template id="ParcelType">
     <div class="col-xs-10 col-sm-8">
         <div class="row d-flex justify-content-center">
-            <input type="radio" name="type"/> <img onclick="popOver()" class="popoverIcon1" src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-placement="top" data-content="Are you shipping any live animals?"/>
-            <input type="radio" name="type" style="margin-left: 15px;"/> <img class="popoverIcon2" src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" data-placement="top" title="Fragile" data-content="Does your parcel need to be kept cool?"/>
+            <!--Standard type has value 1 -->
+            <input type="radio" value="2" name="type" style="margin-top: 8px; margin-right: 5px;"/> <img onclick="popOver()" class="popoverIcon1" src="~/Frontend/Images/cow-light.svg" style="width: 32px; height: 32px;" data-toggle="popover" title="Livestock" data-placement="top" data-content="Are you shipping any live animals?"/>
+            <input type="radio" value="3" name="type" style="margin-left: 15px; margin-top: 8px"/> <img class="popoverIcon2" src="~/Frontend/Images/fragile-light.svg" style="width: 32px; height: 32px;" data-toggle="popover" data-placement="top" title="Fragile" data-content="Does your parcel need to be kept cool?"/>
         </div>
         <div class="row d-flex justify-content-center" style="margin-top: 20px;">
-            <input type="radio" name="type"/> <img class="popoverIcon3" src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-placement="top" data-content="Do we need to handle the parcel with care?"/>
-            <input type="radio" name="type" style="margin-left: 15px;"/> <img class="popoverIcon4" src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" data-placement="top" title="Recorded package" data-content="Do you need to get a signature for the delivery?"/>
+            <input type="radio" value="3" name="type" style="margin-top: 8px; margin-right: 5px;"/> <img class="popoverIcon3" src="~/Frontend/Images/snowflake-light.svg" style="width: 32px; height: 32px;" data-toggle="popover" title="Refrigiated" data-placement="top" data-content="Do we need to handle the parcel with care?"/>
+            <input type="radio" value="4" name="type" style="margin-left: 15px; margin-top: 8px;"/> <img class="popoverIcon4" src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 32px; height: 32px;" data-toggle="popover" data-placement="top" title="Recorded package" data-content="Do you need to get a signature for the delivery?"/>
         </div>
-
+        
+        <p class="row d-flex justify-content-center" style="font-style: italic;">If an icon has not been selected the parcel type will be choosed as a standard type - click on the icons to see informations about the type</p>
 
     </div>
 </template>
@@ -172,7 +191,7 @@
 <template id="succesTemplate">
     <div class="col-xs-10 col-sm-8 row d-flex justify-content-center" style="border: green 2px solid; height: 300px">
         <div class="row d-flex w-100 justify-content-center" style="height:20px"><h2 class="d-flex justify-content-center"><u class="d-flex justify-content-center">Success</u></h2> </div>
-        <div class="d-flex w-100 justify-content-center align-items-center row" style="margin-top: -20px;"><img src="~/Frontend/Images/check-circle-solid.svg" style="color: green; height: 48px; width: 48px" /></div>
+        <div class="d-flex w-100 justify-content-center align-items-center row" style="margin-top: -20px;"><img src="~/Frontend/Images/check-circle-solid.svg" style="color: green; height: 48px; width: 48px; margin-top: 10px"  /></div>
         <div class="d-flex justify-content-center">
             <p>Thank you for placing an order with Telstar Logistics. 
                 <br/>
@@ -184,7 +203,7 @@
            <div id="routeResult" class="col-4" style="border: green 1px solid; height: 50px;">
                <div>
                    <span class="succesFrom"></span>
-                   <img class="pic16" src="~/Frontend/Images/circus-camel.svg" />
+                   <img class="pic16" src="~/Frontend/Images/circus-camel.svg" style="transform: scaleX(-1);"/>
                    <span class="succesTo"></span>
                </div>
                <div class="row d-flex justify-content-center">
@@ -207,8 +226,8 @@
 </template>
 
 <template id="routeOverviewTemplate">
-    <div class="col-sm-8 col-xs-10">
-        <div class="row d-flex flex-fill">
+    <div class="col-sm-12 col-xs-12">
+        <div class="row d-flex flex-fill justify-content-center">
             <div class="col-4 destination d-flex flex-fill align-items-center justify-content-center">
                 <span class="from">From:</span>
             </div>
@@ -217,6 +236,11 @@
             </div>
             <div class="col-4 destination d-flex flex-fill align-items-center justify-content-center">
                 <span class="to">To:</span>
+            </div>
+            <div class="row d-flex flex-fill col-sm-12 col-xs-12 p-0">
+                <div class="col-12 d-flex flex-fill justify-content-center p-0">
+                    <button class="btn btn-basic w-100 mt-1" onclick="ShowMainPage()">Change route</button>
+                </div>
             </div>
         </div>
     </div>
@@ -247,7 +271,7 @@
 
 <template id="tosTemplste">
     <div class="col-xs-10 col-sm-8">
-        <input type="checkbox"/> <a href="https://www.apple.com/ca/legal/internet-services/itunes/ca/terms.html" > I hereby agree to the therms of service</a>
+        <input type="checkbox"/> <a href="https://www.apple.com/ca/legal/internet-services/itunes/ca/terms.html" > I hereby agree to the terms of service</a>
     </div>
 </template>
 

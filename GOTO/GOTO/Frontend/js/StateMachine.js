@@ -4,6 +4,7 @@
 // 1 = ResultPage
 // 2 = PaymentPage
 // 3 = ConfirmationPage
+// 4 = mapPage
 var currentPage = 0;
 
 function init() {
@@ -28,12 +29,22 @@ function ShowMainPage(clearPage = false) {
     }
 }
 
+function closeMap() {
+    ShowMainPage();
+    $("#mapPage").hide();
+}
+function openMap() {
+    hideAllPages();
+    $("#mapPage").show();
+}
+
 function GetReadyToSearch() {
     Search();
     $("#mainPage").fadeOut(1000);
     insertOverviewRoutes();
     setTimeout(function () {
         showResultPage();
+        console.log("t");
     }, 1000);
 }
 
@@ -66,6 +77,7 @@ function ShowConfirmationPage() {
 function hideAllPages() {
     $(".navigationPage").hide();
     $("#loadingScreen").hide();
+    $("#mapPage").hide();
     $("#progressbarWrapper li").removeClass("active");
 }
 

@@ -160,6 +160,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Frontend\css\paymentpage.css" />
+    <Content Include="Frontend\Images\190511_frikanthtikotona1.jpg" />
     <Content Include="Frontend\Images\28Jhf68.jpg" />
     <Content Include="Frontend\Images\arrows-alt-v-solid.svg" />
     <Content Include="Frontend\Images\check-circle-solid.svg" />
