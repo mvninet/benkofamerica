@@ -16,16 +16,6 @@ function showParcelType() {
     document.getElementById("parcelType").appendChild(clon);
 }
 
-function showRouteList() {
-    var temp = document.getElementById("routeWrapperTemplate");
-    var clon = temp.content.cloneNode(true);
-    document.getElementById("routeListWrapper").appendChild(clon);
-} 
-
-function createRouteTemplate(route) {
-
-}
-
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
