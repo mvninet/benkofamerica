@@ -170,7 +170,7 @@
 <template id="paymentTemplate">
     <div class="col-12">
         <div class="row d-flex flex-fill">
-            <input type="number" onchange="isCreditCardValid(this)" class="form-control col-12 creditcard" placeholder="Creditcard number"/> 
+            <input type="text" pattern="[0-9]*" onchange="isCreditCardValid(this)" class="form-control col-12 creditcard" placeholder="Creditcard number"/> 
         </div>
         <div class="row d-flex flex-fill pt-2">
             <div class="col-12 p-0 d-flex">
