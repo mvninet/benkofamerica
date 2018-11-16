@@ -11,9 +11,11 @@ namespace GOTO.Controllers
     {
         public ActionResult Index()
         {
-            ShortestPathCalculator path = new ShortestPathCalculator();
-            path.SetUpEdgesAndCosts();
-            path.PrintShortestPath("A", "E");
+            // ShortestPathCalculator path = new ShortestPathCalculator();
+            // path.SetUpEdgesAndCosts();
+            // path.PrintShortestPath("A", "B");
+            ConnectorController connector = new ConnectorController();
+            connector.GetEastIndiaRoutes(10.0, "Weapons", "10-10-2018");
             return View();
         }
 
