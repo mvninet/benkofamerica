@@ -25,20 +25,27 @@ namespace GOTO.Controllers
         [HttpGet]
         public List<PricedRouteSegment> Get(int weight, String ParcelType)
         {
-            DatabaseWrapper db = new DatabaseWrapper(ConfigurationManager.AppSettings["DatabaseUserName"],
-                                                     ConfigurationManager.AppSettings["DatabasePassword"],
-                                                     ConfigurationManager.AppSettings["DatabaseConnectionURL"],
-                                                     ConfigurationManager.AppSettings["DatabaseTrustedConnection"].ToString(),
-                                                     ConfigurationManager.AppSettings["DatabaseName"].ToString(),
-                                                     Convert.ToInt32(ConfigurationManager.AppSettings["DatabaseConnectionTimeOut"]));
+            if (weight <= 40 && ParcelType != "Weapons")
+            {
+                DatabaseWrapper db = new DatabaseWrapper(ConfigurationManager.AppSettings["DatabaseUserName"],
+                                                         ConfigurationManager.AppSettings["DatabasePassword"],
+                                                         ConfigurationManager.AppSettings["DatabaseConnectionURL"],
+                                                         ConfigurationManager.AppSettings["DatabaseTrustedConnection"].ToString(),
+                                                         ConfigurationManager.AppSettings["DatabaseName"].ToString(),
+                                                         Convert.ToInt32(ConfigurationManager.AppSettings["DatabaseConnectionTimeOut"]));
 
-            db.OpenConnection();
-            var test = db.GetTypeCost(ParcelType);
-            db.CloseConnection();
-            db.OpenConnection();
-            var result = db.GetOwnPricedSegments(test);
-            db.CloseConnection();
-            return result;
+                db.OpenConnection();
+                var test = db.GetTypeCost(ParcelType);
+                db.CloseConnection();
+                db.OpenConnection();
+                var result = db.GetOwnPricedSegments(test);
+                db.CloseConnection();
+                return result;
+            } else
+            {
+                return null;
+            }
+                
         }
     }
 }
