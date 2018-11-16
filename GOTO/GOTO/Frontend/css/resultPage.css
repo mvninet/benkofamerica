@@ -1,0 +1,117 @@
+﻿#resultPage h3 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 40px 0 10px;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
+
+.routeWrapper {
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px 0;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.link-spanner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.routeWrapper div {
+    padding: 0;
+}
+
+.routeWrapperUpper {
+    margin: 20px 0;
+    display: block;
+    overflow: hidden;
+}
+
+.routeWrapperLower {
+    margin: 20px 0;
+    display: block;
+    overflow: hidden;
+}
+
+.routeWrapperUpper h2 {
+    float: left;
+    display: inline;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.routeWrapperUpper img {
+    height: 20px;
+    float: left;
+    display: inline;
+    margin: 0 5px 0 20px;
+}
+
+.routeWrapperLower p {
+    float: left;
+    display: inline;
+}
+
+.routeWrapperLower img {
+    height: 20px;
+    float: left;
+    display: inline;
+    margin: 0 5px 0 20px;
+}
+
+.routeWrapperLower > div {
+    float: left;
+    display: inline;
+}
+
+.routeWrapperTime p {
+    float: left;
+    display: inline;
+}
+
+.searchingRouteWrapper .animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes example {
+    0% {
+        background-color: white;
+    }
+
+    45% {
+        background-color: lightgray;
+    }
+
+    55% {
+        background-color: lightgray;
+    }
+
+    100% {
+        background-color: white;
+    }
+}
+
+.routeClicked {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 2px solid black;
+    background: #56d256;
+    transition: 1s, font-size 0.2s;
+    color: white;
+}
