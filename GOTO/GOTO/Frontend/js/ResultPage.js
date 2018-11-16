@@ -26,6 +26,7 @@ function Search(routeparametersglobal) {
         to: routeparametersglobal.To
     }, function (data) {
         selectedRoute = JSON.parse(data);
+        console.log("Return: " + selectedRoute);
         var routes = [];
 
         for (i = 0; i < selectedRoute.length; i++) {
@@ -65,18 +66,24 @@ function routesFound(routes) {
 }
 
 function createRoutesInList(routes) {
-    var fastestRoute = routes.reduce(function (prev, current) {
-        return (prev.time < current.time) ? prev : current;
-    })
-    fastestRoute.isFastest = true;
-    var cheapestRoute = routes.reduce(function (prev, current) {
-        return (prev.price < current.price) ? prev : current;
-    })
-    cheapestRoute.isCheapest = true;
-    
-    for (i = 0; i < routes.length; i++) {
-        createRouteTemplate(routes[i]);
+    console.log("Routes: " + routes);
+    if (routes.length > 0) {
+        var fastestRoute = routes.reduce(function (prev, current) {
+            return (prev.time < current.time) ? prev : current;
+        })
+        fastestRoute.isFastest = true;
+        var cheapestRoute = routes.reduce(function (prev, current) {
+            return (prev.price < current.price) ? prev : current;
+        })
+        cheapestRoute.isCheapest = true;
+
+        for (i = 0; i < routes.length; i++) {
+            createRouteTemplate(routes[i]);
+        }
+    } else {
+        noRoutesFound();
     }
+    
 }
 
 function createRouteTemplate(route) {
@@ -112,6 +119,14 @@ function createRouteTemplate(route) {
 function createSearchingRouteTemplate() {
     var routeListWrapper = document.querySelector("#routeListWrapper");
     var routeWrapperTemplate = document.querySelector("#searchingRouteWrapperTemplate");
+    var clone = document.importNode(routeWrapperTemplate.content, true);
+
+    routeListWrapper.appendChild(clone);
+}
+
+function noRoutesFound() {
+    var routeListWrapper = document.querySelector("#routeListWrapper");
+    var routeWrapperTemplate = document.querySelector("#noRoutesFoundTemplate");
     var clone = document.importNode(routeWrapperTemplate.content, true);
 
     routeListWrapper.appendChild(clone);
