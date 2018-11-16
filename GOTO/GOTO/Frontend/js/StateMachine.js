@@ -5,6 +5,7 @@
 // 2 = PaymentPage
 // 3 = ConfirmationPage
 var currentPage = 0;
+var selectedRoute;
 
 function init() {
     ShowMainPage();
@@ -46,6 +47,7 @@ function GetReadyForReceipt() {
 }
 
 function ShowPaymentPage(route) {
+    selectedRoute = route;
     hideAllPages();
     $("#paymentPage").fadeIn(750);
     insertPaymentinfomation();
