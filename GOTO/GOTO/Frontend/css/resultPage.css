@@ -70,6 +70,8 @@
 .routeWrapperLower > div {
     float: left;
     display: inline;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .routeWrapperTime p {

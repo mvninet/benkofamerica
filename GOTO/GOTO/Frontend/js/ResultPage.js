@@ -68,22 +68,26 @@ function routesFound(routes) {
 function createRoutesInList(routes) {
     console.log("Routes: " + routes);
     if (routes.length > 0) {
-        var fastestRoute = routes.reduce(function (prev, current) {
-            return (prev.time < current.time) ? prev : current;
-        })
-        fastestRoute.isFastest = true;
-        var cheapestRoute = routes.reduce(function (prev, current) {
-            return (prev.price < current.price) ? prev : current;
-        })
-        cheapestRoute.isCheapest = true;
+        if (routes.time == routes.time && routes.price == routes.price) {
+            routes[0].isTheOnlyRoute = true;
+            createRouteTemplate(routes[0]);
+        } else {
+            var fastestRoute = routes.reduce(function (prev, current) {
+                return (prev.time < current.time) ? prev : current;
+            })
+            fastestRoute.isFastest = true;
+            var cheapestRoute = routes.reduce(function (prev, current) {
+                return (prev.price < current.price) ? prev : current;
+            })
+            cheapestRoute.isCheapest = true;
 
-        for (i = 0; i < routes.length; i++) {
-            createRouteTemplate(routes[i]);
+            for (i = 0; i < routes.length; i++) {
+                createRouteTemplate(routes[i]);
+            }
         }
     } else {
         noRoutesFound();
     }
-    
 }
 
 function createRouteTemplate(route) {
@@ -102,6 +106,10 @@ function createRouteTemplate(route) {
         var IconPic1 = "/Frontend/Images/dollar-sign-solid.svg";
         header[0].textContent = "Cheapest";
         headerIcon[0].setAttribute("src", IconPic1);
+    } else if (route.isTheOnlyRoute) {
+        header[0].textContent = "Only Route";
+    } else {
+        header[0].textContent = "A Route";
     }
 
     var routeTime = clone.querySelectorAll(".routeTime");
