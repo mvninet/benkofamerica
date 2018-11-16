@@ -38,9 +38,10 @@ var checkAll = function () {
         To: ""
     };
     var selected = $('input[name=type]:checked')
-    if (selected !== null) {
+    if (selected.id !== null) {
         var id = selected.id;
         routeParams.Type = id;
+        console.log(id);
     }
     var from = $("#autoFrom").val();
     var to = $("#autoTo").val();

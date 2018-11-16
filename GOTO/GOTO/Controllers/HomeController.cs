@@ -49,7 +49,7 @@ namespace GOTO.Controllers
 
             result.Add(fastestPath);
             result.Add(cheapestPath);
-
             return JsonConvert.SerializeObject(result);
+        }
         }
 }

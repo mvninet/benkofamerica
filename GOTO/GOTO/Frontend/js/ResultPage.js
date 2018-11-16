@@ -11,11 +11,44 @@
 
 }
 
-function Search() {
+function Search(routeparametersglobal) {
     // SEARCH IN API //
-    console.log("SEARCH");
     $(".routeWrapper").remove();
     createRouteListWhileSearching();
+
+    $.post("/Home/getRoutes", {
+        weight: routeparametersglobal.Weight,
+        type: "Standard",
+        height: routeparametersglobal.Height,
+        width: routeparametersglobal.Width,
+        depth: routeparametersglobal.Depth,
+        from: routeparametersglobal.From,
+        to: routeparametersglobal.To
+    }, function (data) {
+        selectedRoute = JSON.parse(data);
+        console.log(selectedRoute);
+
+        var routes = [];
+
+        for (i = 0; i < selectedRoute.length; i++) {
+            var route = {};
+            var price = 0;
+            var time = 0;
+            selectedRoute[i].forEach(function (x) {
+                console.log(x);
+                price += x.Price;
+                time += x.Time;
+
+            });
+
+            route.price = price;
+            route.time = time;
+            routes.push(route);
+        }
+        console.log(routes);
+        createRoutesInList(routes);
+    });
+
 }
 
 function getPopulatedRoutes() {
@@ -30,7 +63,7 @@ function createRouteListWhileSearching() {
        createSearchingRouteTemplate();
     }
 
-    setTimeout(routesFound, 2000);
+    //setTimeout(routesFound, 2000);
 }
 
 function routesFound() {

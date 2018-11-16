@@ -45,14 +45,11 @@ function GetReadyToSearch() {
 
     if (routeParams !== false) {
         routeparametersglobal = routeParams;
-        $.post("/Home/getRoutes", { weight: routeparametersglobal.Weight, type: routeparametersglobal.Type, height: routeparametersglobal.Height, width: routeparametersglobal.Width, depth: routeparametersglobal.Depth, from: routeparametersglobal.From, to: routeparametersglobal.To}, function (data) {
-            console.log(data);
-        });
-        Search();
+        Search(routeParams);
         $("#mainPage").fadeOut(1000);
         insertOverviewRoutes(routeparametersglobal);
         setTimeout(function () {
-            showResultPage();
+            showResultPage(selectedRoute);
         }, 1000);
     }
 }
