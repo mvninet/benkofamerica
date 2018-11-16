@@ -6,7 +6,6 @@
 // 3 = ConfirmationPage
 var currentPage = 0;
 
-
 function init() {
     ShowMainPage();
     //Search();
@@ -35,7 +34,7 @@ function GetReadyToSearch() {
 
 function ShowPaymentPage(route) {
     hideAllPages();
-    $("#paymentPage").show();
+    $("#paymentPage").fadeIn(750);
     insertPaymentinfomation("paymentwrapper");
     currentPage = 2;
     setProgressBar();
@@ -43,7 +42,7 @@ function ShowPaymentPage(route) {
 
 function ShowConfirmationPage() {
     hideAllPages();
-    $("#confirmationPage").show();
+    $("#confirmationPage").fadeIn(750);
     currentPage = 3;
     setProgressBar();
 }

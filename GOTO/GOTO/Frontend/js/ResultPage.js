@@ -1,17 +1,13 @@
 ﻿function chooseRoute(element) {
     var route = JSON.parse($(element).attr("data-route"));
     element.className += " routeClicked";
-    var timeoutTime = 500;
-
+    
     setTimeout(function () {
-        $(".routeWrapper").each(function (index) {
-            $(this).fadeOut(timeoutTime, function () { $(this).remove(); });
-        });
-
+        $("#resultPage").fadeOut(750);
         setTimeout(function () {
-           ShowPaymentPage(route);
-        }, 900);
-    }, 1000);
+            ShowPaymentPage(route);
+        }, 1000);
+    }, 2000);
 
 }
 
@@ -33,7 +29,7 @@ function createRouteListWhileSearching() {
        createSearchingRouteTemplate();
     }
 
-    setTimeout(routesFound, 5000);
+    setTimeout(routesFound, 3000);
 }
 
 function routesFound() {
