@@ -7,13 +7,14 @@
         setTimeout(function () {
             ShowPaymentPage(route);
         }, 1000);
-    }, 2000);
+    }, 1250);
 
 }
 
 function Search() {
     // SEARCH IN API //
     console.log("SEARCH");
+    $(".routeWrapper").remove();
     createRouteListWhileSearching();
 }
 
@@ -89,4 +90,12 @@ function createSearchingRouteTemplate() {
     var clone = document.importNode(routeWrapperTemplate.content, true);
 
     routeListWrapper.appendChild(clone);
+}
+
+function insertOverviewRoutes() {
+    var temp = document.getElementById("routeOverviewTemplate");
+    var clone = temp.content.cloneNode(true);
+
+    document.getElementById("routeOverviewWrapper").innerHTML = "";
+    document.getElementById("routeOverviewWrapper").appendChild(clone);
 }

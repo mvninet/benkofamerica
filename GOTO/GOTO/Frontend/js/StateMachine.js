@@ -16,26 +16,41 @@ function GetCurrentPage() {
     return currentPage;
 }
 
-function ShowMainPage() {
+function ShowMainPage(clearPage = false) {
     hideAllPages();
     $("#mainPage").show();
     currentPage = 0;
     setProgressBar();
+    if (clearPage) {
+        $("#fromSearch").val("");
+        $("#toSearch").val("");
+        //TODO RESET THE REST //
+    }
 }
 
 function GetReadyToSearch() {
     Search();
     $("#mainPage").fadeOut(1000);
-
+    insertOverviewRoutes();
     setTimeout(function () {
         showResultPage();
+    }, 1000);
+}
+
+function GetReadyForReceipt() {
+    $("#paymentPage").fadeOut(750);
+
+    setTimeout(function () {
+        ShowConfirmationPage();
     }, 1000);
 }
 
 function ShowPaymentPage(route) {
     hideAllPages();
     $("#paymentPage").fadeIn(750);
-    insertPaymentinfomation("paymentwrapper");
+    insertPaymentinfomation();
+    inserttos();
+    insertOverviewPayment();
     currentPage = 2;
     setProgressBar();
 }
@@ -47,15 +62,6 @@ function ShowConfirmationPage() {
     setProgressBar();
 }
 
-function ShowLoadingScreen(_show) {
-    if (_show) {
-        $("#loadingScreen").show();
-    } else {
-        $("#loadingScreen").hide();
-    }
-}
-
-
 // PRIVATE FUNCTIONS //
 function hideAllPages() {
     $(".navigationPage").hide();
@@ -65,7 +71,7 @@ function hideAllPages() {
 
 function setProgressBar() {
     var currentPage = GetCurrentPage();
-    for (i = 0; i < GetCurrentPage(); i++) {
+    for (i = 0; i <= GetCurrentPage(); i++) {
         $("#progressbarWrapper li").eq(i).addClass("active");
     }
 }

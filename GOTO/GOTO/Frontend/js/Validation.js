@@ -4,14 +4,23 @@
 };
 
 var isCreditCardValid = function (input) {
-    var saniInput = input.replace(/-/g, " ");
+    var saniInput = input.value.replace(/-/g, " ");
     var regex = /[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4} {0,1}[0-9]{4}/;
     var noIlligalChars = regex.test(saniInput);
     var rightLength = (saniInput.length === 19);
-    return noIlligalChars && rightLength ? true : false;
+    if (noIlligalChars && rightLength) {
+        input.style.border = "2px solid green";
+    } else {
+        input.style.border = "2px solid red";
+    }
 };
-
-
-$(document).ready(function () {
-    console.log(isCreditCardValid("1234-1234-1234-1234"));
-});
+var isNumberValid = function(input, length) {
+    var regex = /^\d+$/;
+    var isvalidformat = regex.test(input.value)
+    var rightLength = (input.value.length === length);
+    if (isvalidformat && rightLength) {
+        input.style.border = "2px solid green";
+    } else {
+        input.style.border = "2px solid red";
+    }
+};
