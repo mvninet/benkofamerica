@@ -61,23 +61,30 @@ namespace GOTO.Controllers
             
         }
 
-        public void CalculateShortestPath(string @from, string to)
+        public List<PricedRouteSegment> CalculateShortestPath(string from, string to)
         {
             var edgeCost = AlgorithmExtensions.GetIndexer(_costs);
-            var tryGetPath = _graph.ShortestPathsDijkstra(edgeCost, @from);
-
+            var tryGetPath = _graph.ShortestPathsDijkstra(edgeCost, from);
+            List<PricedRouteSegment> result = new List<PricedRouteSegment>();
             IEnumerable<CustomEdge> path;
             if (tryGetPath(to, out path))
             {
-                var fr = @from;
-                var xto = to;
-                var p = path;
+                foreach (var segment in path)
+                {
+                    result.Add(new PricedRouteSegment(segment.Source.ToString(),
+                                                      segment.Target.ToString(),
+                                                      segment.Time,
+                                                      segment.Price,
+                                                      segment.Company));
+                }
 
             }
             else
             {
                 Console.WriteLine("No path found from {0} to {1}.");
             }
+
+            return result;
         }
     }
 }
