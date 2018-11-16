@@ -69,10 +69,16 @@ function createRouteTemplate(route) {
     var clone = document.importNode(routeWrapperTemplate.content, true);
 
     var header = clone.querySelectorAll("h2");
+    var headerIcon = clone.querySelectorAll("#iconResult");
+    
     if (route.isFastest) {
-        header[0].textContent = "Fastest";        
+        var IconPic = "/Frontend/Images/rabbit-light.svg";
+        header[0].textContent = "Fastest";
+        headerIcon[0].setAttribute("src", IconPic);
     } else if (route.isCheapest) {
+        var IconPic1 = "/Frontend/Images/dollar-sign-solid.svg";
         header[0].textContent = "Cheapest";
+        headerIcon[0].setAttribute("src", IconPic1);
     }
 
     var routeTime = clone.querySelectorAll(".routeTime");
