@@ -27,7 +27,7 @@ function ShowMainPage() {
 function GetReadyToSearch() {
     Search();
     $("#mainPage").fadeOut(1000);
-
+    insertOverviewRoutes();
     setTimeout(function () {
         showResultPage();
     }, 1000);
@@ -36,7 +36,9 @@ function GetReadyToSearch() {
 function ShowPaymentPage(route) {
     hideAllPages();
     $("#paymentPage").show();
-    insertPaymentinfomation("paymentwrapper");
+    insertPaymentinfomation();
+    inserttos();
+    insertOverviewPayment();
     currentPage = 2;
     setProgressBar();
 }
