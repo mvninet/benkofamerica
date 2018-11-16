@@ -12,5 +12,6 @@ namespace GOTO.Models
         public string ToCity { get; set; }
         public double Time { get; set; }
         public double Price { get; set; }
+        public string Company { get; set; }
     }
 }

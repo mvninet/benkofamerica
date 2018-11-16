@@ -20,7 +20,7 @@ namespace GOTO.Controllers
             public string Name { get; set; }
         }
 
-        public List<Route> GetRoutes(String url, String urlParam)
+        public List<Route> GetRoutes(String url, String urlParam, string company)
         {
 
             HttpClient client = new HttpClient();
@@ -36,9 +36,27 @@ namespace GOTO.Controllers
             var readAsStringAsync = response.Content.ReadAsStringAsync();
 
             var RootObjects = JsonConvert.DeserializeObject<List<Route>>(readAsStringAsync.Result);
+            foreach(var path in RootObjects)
+            {
+                path.Company = company;
+            }
             //Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
             client.Dispose();
             return RootObjects;
         }
+
+        public List<Route> GetOceanicRoutes(Double weight, string type, double height, double width, double length)
+        {
+            var result = GetRoutes("http://wa-oadk.azurewebsites.net/api/routes/", "?weight=" + weight + "&type=" + type + "&height=" + height + "&width=" + width + "&length=" + length, "Oceanic Airlines");
+            return result;
+        }
+
+        public List<Route> GetEastIndiaRoutes(Double weight, string type, string date)
+        {
+            var result = GetRoutes("http://nccesdkeit.azurewebsites.net/api/routes/", "?weight=" + weight + "&typeOfGoods=" + type + "&date=" + date, "East Indian Trading Co.");
+            return result;
+        }
+
+
     }
     }
