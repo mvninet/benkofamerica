@@ -5,6 +5,7 @@
 // 2 = PaymentPage
 // 3 = ConfirmationPage
 var currentPage = 0;
+var routeparametersglobal = "";
 
 function init() {
     ShowMainPage();
@@ -29,12 +30,17 @@ function ShowMainPage(clearPage = false) {
 }
 
 function GetReadyToSearch() {
-    Search();
-    $("#mainPage").fadeOut(1000);
-    insertOverviewRoutes();
-    setTimeout(function () {
-        showResultPage();
-    }, 1000);
+    var routeParams = checkAll();
+
+    if (routeParams !== false) {
+        routeparametersglobal = routeParams;
+        Search();
+        $("#mainPage").fadeOut(1000);
+        insertOverviewRoutes(routeparametersglobal);
+        setTimeout(function () {
+            showResultPage();
+        }, 1000);
+    }
 }
 
 function GetReadyForReceipt() {
@@ -46,13 +52,17 @@ function GetReadyForReceipt() {
 }
 
 function ShowPaymentPage(route) {
-    hideAllPages();
-    $("#paymentPage").fadeIn(750);
-    insertPaymentinfomation();
-    inserttos();
-    insertOverviewPayment();
-    currentPage = 2;
-    setProgressBar();
+
+    var routeParams = checkAll();
+    if (routeParams !== "") {
+        hideAllPages();
+        $("#paymentPage").fadeIn(750);
+        insertPaymentinfomation();
+        inserttos();
+        insertOverviewPayment(routeParams);
+        currentPage = 2;
+        setProgressBar();
+    }
 }
 
 function ShowConfirmationPage() {

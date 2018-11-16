@@ -145,7 +145,7 @@ function popOver() {
 }
 
 $('#popovercloseid').click(function (e) {
-    if (e.target.id == "popovercloseid") {
+    if (e.target.id === "popovercloseid") {
         $('.popover').popover('hide');
     }
 

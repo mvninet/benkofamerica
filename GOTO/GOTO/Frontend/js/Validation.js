@@ -24,3 +24,62 @@ var isNumberValid = function(input, length) {
         input.style.border = "2px solid red";
     }
 };
+
+var checkAll = function () {
+
+    var cities = [];
+    var routeParams = {
+        Weight: "",
+        Type: "Standard",
+        Height: "",
+        Width: "",
+        Depth: "",
+        From: "",
+        To: ""
+    };
+    var selected = $('input[name=type]:checked')
+    if (selected !== null) {
+        var id = selected.id;
+        routeParams.Type = id;
+    }
+    var from = $("#autoFrom").val();
+    var to = $("#autoTo").val();
+
+    if (from !== null) {
+        routeParams.From = from;
+    } 
+    if (to !== null) {
+        routeParams.To = to;
+    }
+
+    var height = $("#Height").val();
+    var width = $("#Width").val();
+    var depth = $("#Depth").val();
+
+    if (height !== null) {
+        routeParams.Height = height;
+    }
+    if (width !== null) {
+        routeParams.Width = width;
+    }
+    if (depth !== null) {
+        routeParams.Depth = depth;
+    }
+    var weight = $("#weight").val();
+
+    if (weight !== null) {
+        routeParams.Weight = weight;
+    }
+
+    if (routeParams.Depth !== "" &&
+        routeParams.From !== "" &&
+        routeParams.Height !== "" &&
+        routeParams.Type !== "" &&
+        routeParams.Weight !== "" &&
+        routeParams.Width !== "" &&
+        routeParams.To !== "") {
+        return routeParams;
+    } else {
+        return false;
+    }
+}
