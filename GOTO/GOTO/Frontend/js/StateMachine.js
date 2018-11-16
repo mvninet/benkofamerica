@@ -11,7 +11,6 @@ var selectedRoute;
 
 function init() {
     ShowMainPage();
-    //Search();
 }
 
 // PUBLIC FUNCTIONS //
@@ -56,7 +55,7 @@ function GetReadyToSearch() {
 
 function GetReadyForReceipt() {
     $("#paymentPage").fadeOut(750);
-
+    showReceipt(selectedRoute);
     setTimeout(function () {
         ShowConfirmationPage();
     }, 1000);

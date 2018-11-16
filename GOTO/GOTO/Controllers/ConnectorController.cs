@@ -103,7 +103,6 @@ namespace GOTO.Controllers
                 cities.Add(path.ToCity);
             }
             var noDups = cities.Distinct().ToList();
-            //return noDups;
             return JsonConvert.SerializeObject(noDups);
 
 

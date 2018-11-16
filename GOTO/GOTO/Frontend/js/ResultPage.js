@@ -18,7 +18,7 @@ function Search(routeparametersglobal) {
 
     $.post("/Home/getRoutes", {
         weight: routeparametersglobal.Weight,
-        type: "Standard",
+        type: routeparametersglobal.Type,
         height: routeparametersglobal.Height,
         width: routeparametersglobal.Width,
         depth: routeparametersglobal.Depth,
@@ -26,8 +26,6 @@ function Search(routeparametersglobal) {
         to: routeparametersglobal.To
     }, function (data) {
         selectedRoute = JSON.parse(data);
-        console.log(selectedRoute);
-
         var routes = [];
 
         for (i = 0; i < selectedRoute.length; i++) {
@@ -35,56 +33,44 @@ function Search(routeparametersglobal) {
             var price = 0;
             var time = 0;
             selectedRoute[i].forEach(function (x) {
-                console.log(x);
                 price += x.Price;
                 time += x.Time;
-
             });
-
+            route.from = selectedRoute[i][0].FromCity;
+            route.to = selectedRoute[i][selectedRoute[i].length-1].ToCity;
             route.price = price;
             route.time = time;
             routes.push(route);
         }
-        console.log(routes);
-        createRoutesInList(routes);
+        routesFound(routes);
     });
 
-}
-
-function getPopulatedRoutes() {
-    return [
-        { price: 100, time: 12 },
-        { price: 200, time: 6 }
-    ];
 }
 
 function createRouteListWhileSearching() {
     for (i = 0; i < 2; i++) {
        createSearchingRouteTemplate();
     }
-
-    //setTimeout(routesFound, 2000);
 }
 
-function routesFound() {
+function routesFound(routes) {
     var fadeoutTime = 750;
     $(".routeWrapper").each(function (index) {
         $(this).fadeOut(fadeoutTime, function () { $(this).remove(); });
     });
 
     setTimeout(function () {
-        var dummyData = getPopulatedRoutes();
-        createRoutesInList(dummyData);
+        createRoutesInList(routes);
     }, fadeoutTime);
 }
 
 function createRoutesInList(routes) {
     var fastestRoute = routes.reduce(function (prev, current) {
-        return (prev.time < current.time) ? prev : current
+        return (prev.time < current.time) ? prev : current;
     })
     fastestRoute.isFastest = true;
     var cheapestRoute = routes.reduce(function (prev, current) {
-        return (prev.price < current.price) ? prev : current
+        return (prev.price < current.price) ? prev : current;
     })
     cheapestRoute.isCheapest = true;
     
