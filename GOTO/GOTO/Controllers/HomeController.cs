@@ -11,6 +11,9 @@ namespace GOTO.Controllers
     {
         public ActionResult Index()
         {
+            ShortestPathCalculator path = new ShortestPathCalculator();
+            path.SetUpEdgesAndCosts();
+            path.PrintShortestPath("A", "E");
             return View();
         }
 
