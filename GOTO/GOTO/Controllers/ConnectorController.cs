@@ -46,15 +46,28 @@ namespace GOTO.Controllers
             return RootObjects;
         }
 
-        public List<Route> GetOceanicRoutes(Double weight, string type, double height, double width, double length)
+        public List<PricedRouteSegment> GetOceanicRoutes(Double weight, string type, double height, double width, double length)
         {
-            var result = GetRoutes("http://wa-oadk.azurewebsites.net/api/routes/", "?weight=" + weight + "&type=" + type + "&height=" + height + "&width=" + width + "&length=" + length, "Oceanic Airlines");
+            List<PricedRouteSegment> result = new List<PricedRouteSegment>();
+            var response = GetRoutes("http://wa-oadk.azurewebsites.net/api/routes/", "?weight=" + weight + "&type=" + type + "&height=" + height + "&width=" + width + "&length=" + length, "Oceanic Airlines");
+
+            foreach(var segment in response)
+            {
+                result.Add(new PricedRouteSegment(segment.FromCity, segment.ToCity, segment.Time, segment.Price, segment.Company));
+            }
             return result;
         }
 
-        public List<Route> GetEastIndiaRoutes(Double weight, string type, string date)
+        public List<PricedRouteSegment> GetEastIndiaRoutes(Double weight, string type, string date)
         {
-            var result = GetRoutes("http://nccesdkeit.azurewebsites.net/api/routes/", "?weight=" + weight + "&typeOfGoods=" + type + "&date=" + date, "East Indian Trading Co.");
+
+            List<PricedRouteSegment> result = new List<PricedRouteSegment>();
+            var response = GetRoutes("http://nccesdkeit.azurewebsites.net/api/routes/", "?weight=" + weight + "&typeOfGoods=" + type + "&date=" + date, "East Indian Trading Co.");
+
+            foreach (var segment in response)
+            {
+                result.Add(new PricedRouteSegment(segment.FromCity, segment.ToCity, segment.Time, segment.Price, segment.Company));
+            }
             return result;
         }
 
