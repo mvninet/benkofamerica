@@ -21,12 +21,9 @@
             <p>Template From To destination</p>
         </div>
         <div class="col-xs-12 col-sm-12">
-            <p>Routes</p>
+            <h3>Routes</h3>
             <div id="routeListWrapper">
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12">
-            <button onclick="ShowPaymentPage()">Choose this route</button>
         </div>
     </div>
     <div id="paymentPage" class="navigationPage">
@@ -98,9 +95,10 @@
 <!-- Result List -->
 <template id="routeWrapperTemplate">
     <div class="routeWrapper col-12">
+        <a onclick="chooseRoute(this.parentElement)"><span class="link-spanner"></span></a>
         <div class="routeWrapperUpper">
             <img src="~/Frontend/img/placeholder.svg" />
-            <h2>Fastest</h2>
+            <h2></h2>
         </div>
         <div class="routeWrapperLower">
             <div class="col-6 routeWrapperTime">
@@ -110,6 +108,26 @@
             <div class="col-6 routeWrapperTime">
                 <img src="~/Frontend/img/placeholder.svg" />
                 <p>$<span class="routePrice"></span></p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="searchingRouteWrapperTemplate">
+    <div class="routeWrapper searchingRouteWrapper col-12">
+        <div class="animation text-center">
+            <p style="padding-top: 40px;">We're fetching you're results.</p>
+            <p>Please hold on...</p>
+        </div>
+        <div class="routeWrapperUpper">
+            <h2>&nbsp;</h2>
+        </div>
+        <div class="routeWrapperLower">
+            <div class="col-6 routeWrapperTime">
+                <p>&nbsp;</p>
+            </div>
+            <div class="col-6 routeWrapperTime">
+                <p>&nbsp;</p>
             </div>
         </div>
     </div>
@@ -138,6 +156,5 @@
     //POPOVER - NEEDS TO BE INIT WITH JQUERY
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover();
-        console.log("popover");
     });
 </script>
