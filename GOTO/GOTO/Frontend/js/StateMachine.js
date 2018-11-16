@@ -8,8 +8,8 @@ var currentPage = 0;
 
 
 function init() {
-    ShowMainPage();
-    console.log("init");
+    //ShowMainPage();
+    Search();
 }
 
 // PUBLIC FUNCTIONS //
@@ -28,9 +28,11 @@ function ShowResultPage() {
     insertOverviewRoutes();
     $("#resultPage").show();
     currentPage = 1;
+function Search() {
+    showResultPage();
 }
 
-function ShowPaymentPage() {
+function ShowPaymentPage(route) {
     hideAllPages();
     $("#paymentPage").show();
     insertPaymentinfomation();
@@ -48,7 +50,6 @@ function ShowConfirmationPage() {
 function ShowLoadingScreen(_show) {
     if (_show) {
         $("#loadingScreen").show();
-
     } else {
         $("#loadingScreen").hide();
     }
@@ -61,3 +62,17 @@ function hideAllPages() {
     $("#loadingScreen").hide();
 }
 
+function showResultPage() {
+    hideAllPages();
+    $("#resultPage").show();
+    currentPage = 1;
+    createRouteListWhileSearching();
+
+}
+
+function insertPaymentinfomation(parent) {
+    var temp = document.getElementById("paymentTemplate");
+    console.log(temp);
+    var clone = temp.content.cloneNode(true);
+    document.getElementById(parent).appendChild(clone);
+}
