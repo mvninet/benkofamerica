@@ -45,6 +45,9 @@ function GetReadyToSearch() {
 
     if (routeParams !== false) {
         routeparametersglobal = routeParams;
+        $.post("/Home/getRoutes", routeparametersglobal, function (data) {
+            console.log(data);
+        });
         Search();
         $("#mainPage").fadeOut(1000);
         insertOverviewRoutes(routeparametersglobal);
