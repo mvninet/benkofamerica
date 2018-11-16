@@ -4,8 +4,10 @@
 // 1 = ResultPage
 // 2 = PaymentPage
 // 3 = ConfirmationPage
+// 4 = mapPage
 var currentPage = 0;
 var routeparametersglobal = "";
+var selectedRoute;
 
 function init() {
     ShowMainPage();
@@ -27,6 +29,15 @@ function ShowMainPage(clearPage = false) {
         $("#toSearch").val("");
         //TODO RESET THE REST //
     }
+}
+
+function closeMap() {
+    ShowMainPage();
+    $("#mapPage").hide();
+}
+function openMap() {
+    hideAllPages();
+    $("#mapPage").show();
 }
 
 function GetReadyToSearch() {
@@ -54,6 +65,7 @@ function GetReadyForReceipt() {
 function ShowPaymentPage(route) {
 
     var routeParams = checkAll();
+    selectedRoute = route
     if (routeParams !== "") {
         hideAllPages();
         $("#paymentPage").fadeIn(750);
@@ -65,17 +77,11 @@ function ShowPaymentPage(route) {
     }
 }
 
-function ShowConfirmationPage() {
-    hideAllPages();
-    $("#confirmationPage").fadeIn(750);
-    currentPage = 3;
-    setProgressBar();
-}
-
 // PRIVATE FUNCTIONS //
 function hideAllPages() {
     $(".navigationPage").hide();
     $("#loadingScreen").hide();
+    $("#mapPage").hide();
     $("#progressbarWrapper li").removeClass("active");
 }
 
@@ -90,6 +96,13 @@ function showResultPage() {
     hideAllPages();
     $("#resultPage").fadeIn(500);
     currentPage = 1;
+    setProgressBar();
+}
+
+function ShowConfirmationPage() {
+    hideAllPages();
+    $("#confirmationPage").fadeIn(750);
+    currentPage = 3;
     setProgressBar();
 }
 

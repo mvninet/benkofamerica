@@ -150,3 +150,11 @@ table {
         width: 100vw;
     }
 }
+
+#autoFromautocomplete-list div {
+    margin: 8px 2px;
+}
+
+#autoToautocomplete-list div {
+    margin: 8px 2px;
+}
