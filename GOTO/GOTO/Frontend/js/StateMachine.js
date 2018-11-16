@@ -6,6 +6,7 @@
 // 3 = ConfirmationPage
 // 4 = mapPage
 var currentPage = 0;
+var selectedRoute;
 
 function init() {
     ShowMainPage();
@@ -57,19 +58,13 @@ function GetReadyForReceipt() {
 }
 
 function ShowPaymentPage(route) {
+    selectedRoute = route;
     hideAllPages();
     $("#paymentPage").fadeIn(750);
     insertPaymentinfomation();
     inserttos();
     insertOverviewPayment();
     currentPage = 2;
-    setProgressBar();
-}
-
-function ShowConfirmationPage() {
-    hideAllPages();
-    $("#confirmationPage").fadeIn(750);
-    currentPage = 3;
     setProgressBar();
 }
 
@@ -92,6 +87,13 @@ function showResultPage() {
     hideAllPages();
     $("#resultPage").fadeIn(500);
     currentPage = 1;
+    setProgressBar();
+}
+
+function ShowConfirmationPage() {
+    hideAllPages();
+    $("#confirmationPage").fadeIn(750);
+    currentPage = 3;
     setProgressBar();
 }
 
