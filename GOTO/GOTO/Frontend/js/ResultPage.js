@@ -30,3 +30,11 @@ function createRouteTemplate(route) {
   
     routeListWrapper.appendChild(clone);
 }
+
+function insertOverviewRoutes() {
+    var temp = document.getElementById("routeOverviewTemplate");
+    var clone = temp.content.cloneNode(true);
+
+    document.getElementById("routeOverviewWrapper").innerHTML = "";
+    document.getElementById("routeOverviewWrapper").appendChild(clone);
+}

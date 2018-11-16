@@ -25,6 +25,7 @@ function ShowMainPage() {
 
 function ShowResultPage() {
     hideAllPages();
+    insertOverviewRoutes();
     $("#resultPage").show();
     currentPage = 1;
 }
@@ -32,7 +33,9 @@ function ShowResultPage() {
 function ShowPaymentPage() {
     hideAllPages();
     $("#paymentPage").show();
-    insertPaymentinfomation("paymentwrapper");
+    insertPaymentinfomation();
+    inserttos();
+    insertOverviewPayment();
     currentPage = 2;
 }
 
@@ -58,9 +61,3 @@ function hideAllPages() {
     $("#loadingScreen").hide();
 }
 
-function insertPaymentinfomation(parent) {
-    var temp = document.getElementById("paymentTemplate");
-    console.log(temp);
-    var clone = temp.content.cloneNode(true);
-    document.getElementById(parent).appendChild(clone);
-}
