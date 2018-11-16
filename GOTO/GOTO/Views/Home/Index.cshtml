@@ -1,4 +1,14 @@
 <div id="applicationWrapper" class="col-12 d-flex flex-fill justify-content-center">
+    
+    <div id="progressbarWrapper" class="col-12">
+        <ul class="progressbar">
+            <li class="active">Search</li>
+            <li>Results</li>
+            <li>Pay</li>
+            <li>Receipt</li>
+        </ul>
+    </div>
+
     <div id="mainPage" class="navigationPage">
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center">
             <img src="~/Frontend/Images/rq9MmY0.png"/>
@@ -10,11 +20,10 @@
         <div id="SearchTo" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
         <div id="parcelType" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px">
-            <button class="btn btn-success" onclick="ShowResultPage()">Search</button>
+            <button class="btn btn-success" onclick="GetReadyToSearch()">Search</button>
         </div>
     </div>
     <div id="resultPage" class="navigationPage">
-        <p>ResultPage with routes</p>
         <div class="col-xs-12 col-sm-12">
             <p>Template From To destination</p>
         </div>

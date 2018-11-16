@@ -1,4 +1,14 @@
-﻿.routeWrapper {
+﻿#resultPage h3 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 40px 0 10px;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
+
+.routeWrapper {
     background-color: white;
     border-radius: 4px;
     padding: 10px 0;
