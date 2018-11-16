@@ -11,17 +11,20 @@
 
     <div id="mainPage" class="navigationPage">
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center">
-            <img src="~/Frontend/Images/rq9MmY0.png"/>
+            <img src="~/Frontend/Images/rq9MmY0.png" />
         </div>
         <div id="SearchFrom" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;">
-            <img class="pic32" src="~/Frontend/Images/circus-camel.svg"/>
+            <img class="pic32" src="~/Frontend/Images/circus-camel.svg" />
         </div>
         <div id="SearchTo" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
-        <div id="parcelType" class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px;"></div>
+        <div id="parcelData" class="col-xs-12 col-sm-10 d-flex flex-column justify-content-center" style="margin-top: 20px;"></div>
+        <div id="parcelType" class="col-xs-10 col-sm-8 d-flex justify-content-center" style="margin-top: 20px;"></div>
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px">
             <button class="btn btn-success" onclick="GetReadyToSearch()">Search</button>
         </div>
+
+
     </div>
     <div id="resultPage" class="navigationPage">
         <div class="col-xs-12 col-sm-12">
@@ -48,17 +51,7 @@
             <button onclick="ShowConfirmationPage()">Pay </button>
         </div>
     </div>
-    <div id="confirmationPage" class="navigationPage">
-        <p>ConfirmationPage</p>
-        <div class="col-xs-12 col-sm-12">
-            <p>Success Text</p>
-            <p>Success Image</p>
-        </div>
-        <div class="col-xs-12 col-sm-12">
-            <p>Order</p>
-        </div>
-       
-    </div>
+    <div id="confirmationPage" class="navigationPage"></div>
     <div id="loadingScreen">
         <p>We are loading the page for you!</p>
     </div>
@@ -67,7 +60,7 @@
 <!-- From inputfield - Search page -->
 <template id="fromSearch">
     <div class="col-xs-10 col-sm-8 input-effect">
-        <input id="autoFrom" class="effect-17" type="text" placeholder="">
+        <input id="autoFrom" class="effect-17" type="text" placeholder="" style="margin-left: 30px; margin-top: 3px">
         <label>From</label>
         <span class="focus-border"></span>
     </div>
@@ -76,7 +69,7 @@
 <!-- To inputfield - Search page -->
 <template id="toSearch">
     <div class="col-xs-10 col-sm-8 input-effect">
-        <input id="autoTo" class="effect-17" type="text" placeholder="">
+        <input id="autoTo" class="effect-17" type="text" placeholder="" style="margin-left: 10px; margin-top: 2px">
         <label>To</label>
         <span class="focus-border"></span>
     </div>
@@ -85,15 +78,36 @@
 <template id="ParcelType">
     <div class="col-xs-10 col-sm-8">
         <div class="row d-flex justify-content-center">
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-content="Are you shipping any live animals?" />
-            <input type="radio" name="type" style="margin-left: 15px;"/> <img src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Fragile" data-content="Does your parcel need to be kept cool?" />
+            <input type="radio" name="type"/> <img onclick="popOver()" class="popoverIcon1" src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-placement="top" data-content="Are you shipping any live animals?"/>
+            <input type="radio" name="type" style="margin-left: 15px;"/> <img class="popoverIcon2" src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" data-placement="top" title="Fragile" data-content="Does your parcel need to be kept cool?"/>
         </div>
         <div class="row d-flex justify-content-center" style="margin-top: 20px;">
-            <input type="radio" name="type" /> <img src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-content="Do we need to handle the parcel with care?" />
-            <input type="radio" name="type" style="margin-left: 15px;" /> <img src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Recorded package" data-content="Do you need to get a signature for the delivery?" />
+            <input type="radio" name="type"/> <img class="popoverIcon3" src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-placement="top" data-content="Do we need to handle the parcel with care?"/>
+            <input type="radio" name="type" style="margin-left: 15px;"/> <img class="popoverIcon4" src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" data-placement="top" title="Recorded package" data-content="Do you need to get a signature for the delivery?"/>
         </div>
 
 
+    </div>
+</template>
+
+<template id="ParcelData">
+    <div class="row">
+        <div class="col-xs-10 col-sm-8 d-flex justify-content-center" style="height: 40px;">
+            <img src="~/Frontend/Images/weight-hanging-solid.svg" class="pic32 d-flex justify-content-center" /><input class="effect-8 col-xs-10 col-sm-8" type="number" placeholder="Weight"> 
+            <span class="focus-border">
+                <i></i>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-sm-4 d-flex align-items-center">
+            <img src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /> <input class="effect-8 col-4" type="number" placeholder="Height">
+            <img style="transform: rotate(90deg);" src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /><input class="effect-8 col-4" type="number" placeholder="Width">
+            <img style="transform: rotate(45deg);" src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /> <input class="effect-8 col-4" type="number" placeholder="Depth">
+            <span class="focus-border">
+                <i></i>
+            </span>
+        </div>
     </div>
 </template>
 
@@ -159,14 +173,40 @@
 
 <!-- Succes page -->
 <template id="succesTemplate">
-    <div class="col-xs-10 col-sm-8 row d-flex justify-content-center" style="border: green 1px solid;">
-        <h2><u>Succes</u></h2>
-        <i class="fas fa-check-circle"></i>
-        
-        <div class="col-xs-12 col-sm-12 d-flex justify-content-center">
-            <button class="btn btn-success" onclick="ShowMainPage()">Ship another parcel</button>
+    <div class="col-xs-10 col-sm-8 row d-flex justify-content-center" style="border: green 2px solid; height: 300px">
+        <div class="row d-flex w-100 justify-content-center" style="height:20px"><h2 class="d-flex justify-content-center"><u class="d-flex justify-content-center">Success</u></h2> </div>
+        <div class="d-flex w-100 justify-content-center align-items-center row" style="margin-top: -20px;"><img src="~/Frontend/Images/check-circle-solid.svg" style="color: green; height: 48px; width: 48px" /></div>
+        <div class="d-flex justify-content-center">
+            <p>Thank you for placing an order with Telstar Logistics. 
+                <br/>
+                Here is your Order ID for your records: ORDERID 
+                <br/>
+                If you wish to place another Order please click the button below. </p>
         </div>
+       <div class="col-12 d-flex justify-content-center">
+           <div id="routeResult" class="col-4" style="border: green 1px solid; height: 50px;">
+               <div>
+                   <span class="succesFrom"></span>
+                   <img class="pic16" src="~/Frontend/Images/circus-camel.svg" />
+                   <span class="succesTo"></span>
+               </div>
+               <div class="row d-flex justify-content-center">
+                   <img src="~/Frontend/Images/clock-regular.svg" class="pic16"/><span class="succesTime"></span>
+                   <img src="~/Frontend/Images/dollar-sign-solid.svg" class="pic16"/><span class="succesPrice"></span>
+               </div>
+               <br/>
+           </div>
+       </div>
+
+        <div class="col-xs-10 col-sm-8 d-flex justify-content-center">
+            <button class="btn btn-success" onclick="ShowMainPage()" style="height: 50px">Ship another parcel</button>
+        </div>
+       
     </div>
+    
+    
+    
+   
 </template>
 
 <script>
