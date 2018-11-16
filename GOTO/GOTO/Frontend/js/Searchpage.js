@@ -121,36 +121,17 @@ function autocomplete(inp, arr) {
 }
 
 function initialize() {
-    $.get("/Connector/getCities", function (data) {
-        console.log(data);
-       // data.push(countries);
-    });
-    var countries = [
-        "De kanariske øer",
-        "Marrakesh",
-        "Tanger",
-        "Tunis",
-        "Tripoli",
-        "Sahara",
-        "Dakar",
-        "Sierra leone",
-        "Guld kysten",
-        "Timbuktu",
-        "Wadai",
-        "Slave kysten",
-        "Omdurman",
-        "Dafur",
-        "Congo",
-        "Luanda",
-        "Kabalo",
-        "Bahr el Shazal",
-        "Addis abeba",
-        "Victoria søen",
-        "Zanzibar",
-        "Victoria faldene",
-        "Dragebjerget"
+    var countries = [];
+    $.get("/Connector/getCities",
+        function(data) {
+            console.log(data);
+            var count = JSON.parse(data);
+            for (var i = 0; i < count.length; i++) {
+                countries.push(count[i]);
+}
 
-    ];
+
+    });
     showInput_field();
     showParcelData();
     showParcelType();
