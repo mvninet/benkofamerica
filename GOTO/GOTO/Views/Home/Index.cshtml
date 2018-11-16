@@ -49,10 +49,7 @@
             <p>Payment</p>
         </div>
         <div class="col-xs-12 col-sm-12 d-flex justify-content-center" style="margin-top: 20px">
-            <button class="btn btn-basic w-100" onclick="ShowResultPage()">Pay</button>
-        </div>
-        <div class="col-xs-12 col-sm-12">
-            <button onclick="ShowConfirmationPage()">Pay </button>
+            <button class="btn btn-basic w-100" onclick="ShowConfirmationPage()">Pay</button>
         </div>
     </div>
     <div id="confirmationPage" class="navigationPage"></div>
@@ -81,13 +78,13 @@
 
 <template id="ParcelType">
     <div class="col-xs-10 col-sm-8">
-        <div class="row d-flex justify-content-center">
-            <input type="radio" name="type"/> <img onclick="popOver()" class="popoverIcon1" src="~/Frontend/Images/cow-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Livestock" data-placement="top" data-content="Are you shipping any live animals?"/>
-            <input type="radio" name="type" style="margin-left: 15px;"/> <img class="popoverIcon2" src="~/Frontend/Images/fragile-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" data-placement="top" title="Fragile" data-content="Does your parcel need to be kept cool?"/>
+        <div class="row d-flex justify-content-center align-items-center">
+            <input type="radio" name="type"/> <img onclick="popOver()" class="popoverIcon1" src="~/Frontend/Images/cow-light.svg" style="width: 25px; height: 25px;" data-toggle="popover" title="Livestock" data-placement="top" data-content="Are you shipping any live animals?"/>
+            <input type="radio" name="type" style="margin-left: 15px;"/> <img class="popoverIcon2" src="~/Frontend/Images/fragile-light.svg" style="width: 25px; height: 25px;" data-toggle="popover" data-placement="top" title="Fragile" data-content="Does your parcel need to be kept cool?"/>
         </div>
-        <div class="row d-flex justify-content-center" style="margin-top: 20px;">
-            <input type="radio" name="type"/> <img class="popoverIcon3" src="~/Frontend/Images/snowflake-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" title="Refrigiated" data-placement="top" data-content="Do we need to handle the parcel with care?"/>
-            <input type="radio" name="type" style="margin-left: 15px;"/> <img class="popoverIcon4" src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 16px; height: 16px;" data-toggle="popover" data-placement="top" title="Recorded package" data-content="Do you need to get a signature for the delivery?"/>
+        <div class="row d-flex justify-content-center align-items-center" style="margin-top: 20px;">
+            <input type="radio" name="type"/> <img class="popoverIcon3" src="~/Frontend/Images/snowflake-light.svg" style="width: 25px; height: 25px;" data-toggle="popover" title="Refrigiated" data-placement="top" data-content="Do we need to handle the parcel with care?"/>
+            <input type="radio" name="type" style="margin-left: 15px;"/> <img class="popoverIcon4" src="~/Frontend/Images/map-marker-alt-light.svg" style="width: 25px; height: 25px;" data-toggle="popover" data-placement="top" title="Recorded package" data-content="Do you need to get a signature for the delivery?"/>
         </div>
 
 
@@ -104,10 +101,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-10 col-sm-4 d-flex align-items-center">
-            <img src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /> <input class="effect-8 col-4" type="number" placeholder="Height">
-            <img style="transform: rotate(90deg);" src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /><input class="effect-8 col-4" type="number" placeholder="Width">
-            <img style="transform: rotate(45deg);" src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /> <input class="effect-8 col-4" type="number" placeholder="Depth">
+        <div class="col-xs-10 col-sm-4 d-flex align-items-center justify-content-center mt-1">
+            <img src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /> <input class="effect-8 col-3" type="number" placeholder="Height">
+            <img style="transform: rotate(90deg);" src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /><input class="effect-8 col-3" type="number" placeholder="Width">
+            <img style="transform: rotate(45deg);" src="~/Frontend/Images/arrows-alt-v-solid.svg" class="pic32" /> <input class="effect-8 col-3" type="number" placeholder="Depth">
             <span class="focus-border">
                 <i></i>
             </span>
@@ -215,7 +212,7 @@
 </template>
 
 <template id="routeOverviewTemplate">
-    <div class="col-sm-8 col-xs-10">
+    <div class="col-">
         <div class="row d-flex flex-fill">
             <div class="col-4 destination d-flex flex-fill align-items-center justify-content-center">
                 <span class="from">From:</span>
@@ -231,7 +228,7 @@
 </template>
 
 <template id="paymentOverviewTemplate">
-    <div class="col-sm-8 col-xs-10">
+    <div class="col-12">
         <div class="row d-flex flex-fill">
             <div class="col-4 destination d-flex flex-fill align-items-center justify-content-center">
                 <span class="from">From:</span>
