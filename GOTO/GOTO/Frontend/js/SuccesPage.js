@@ -1,8 +1,8 @@
 ﻿function showReceipt(route) {
+    console.log(route);
     var temp = document.getElementById("succesTemplate");
     var clon = temp.content.cloneNode(true);
     document.getElementById("confirmationPage").appendChild(clon);
-    console.log("receipt");
 
     var routeFrom = document.getElementsByClassName("succesFrom");
     routeFrom[0].textContent = route.from;
@@ -17,12 +17,3 @@
 
 
 }
-
-function initSucces() {
-    var routes = [
-        { from:"Denmark", to:"UK", price: 100, time: 12 }
-    ];
-
-    showReceipt(routes[0]);
-}
-

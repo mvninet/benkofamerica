@@ -71,7 +71,7 @@ namespace GOTO.Controllers
             return result;
         }
 
-        public List<String> getCities()
+        public string getCities()
         {
             List<String> cities = new List<string>();
             var eastindia = GetEastIndiaRoutes(5, "Live animals", "10-10-2010");
@@ -103,7 +103,7 @@ namespace GOTO.Controllers
                 cities.Add(path.ToCity);
             }
             var noDups = cities.Distinct().ToList();
-            return noDups;
+            return JsonConvert.SerializeObject(noDups);
 
 
 
